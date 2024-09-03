@@ -2,10 +2,10 @@
 import { Image } from 'astro:assets';
 ---
 
-<section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+<section class="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
 	<div class="container px-4 md:px-6">
 		<h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">App Screenshots</h2>
-		<div class="flex justify-center space-x-4">
+		<div class="flex justify-center space-x-4 overflow-hidden">
       <Image src="/screenshot1.jpg" alt="Suri App Screenshot 1" class="rounded-lg shadow-lg" width={200} height={400} />
 			<Image src="/screenshot1.jpg" alt="Suri App Screenshot 2" class="rounded-lg shadow-lg" width={200} height={400} />
       <Image src="/screenshot1.jpg" alt="Suri App Screenshot 3" class="rounded-lg shadow-lg" width={200} height={400} />

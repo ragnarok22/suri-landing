@@ -1,28 +1,26 @@
 ---
-import { Button } from './ui/Button';
-import { DownloadIcon } from 'lucide-react';
+import { Image } from 'astro:assets';
 ---
 
-<section id="download" class="w-full py-12 md:py-24 lg:py-32">
+<section id="download" class="w-full flex justify-center py-12 md:py-24 lg:py-32">
 	<div class="container px-4 md:px-6">
 		<div class="flex flex-col items-center space-y-4 text-center">
 			<div class="space-y-2">
 				<h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-					Download Suri Today
+          Download Suri Now
 				</h2>
 				<p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-					Start managing your mobile credit and data plans with ease. Download Suri now and stay connected.
+          Start managing your mobile credit and data plans with ease. Download Suri today and stay connected.
 				</p>
 			</div>
-			<div class="space-x-4">
-				<Button class="inline-flex items-center">
-					<DownloadIcon className="mr-2 h-4 w-4" />
-					Download for iOS
-				</Button>
-				<Button class="inline-flex items-center">
-					<DownloadIcon className="mr-2 h-4 w-4" />
-					Download for Android
-				</Button>
+			<div class="space-x-4 flex items-start">
+				<a href="#" class="inline-flex items-center">
+          <Image src="/google-play-badge.png" alt="Google Play" width={150} height={50} />
+				</a>
+				<a href="#" class="flex flex-col items-center opacity-50">
+          <Image src="/app-store-badge.svg" alt="App Store" width={150} height={50} />
+          (Coming Soon)
+				</a>
 			</div>
 		</div>
 	</div>
