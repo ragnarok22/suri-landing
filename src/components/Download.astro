@@ -35,7 +35,7 @@ import { Image } from 'astro:assets';
 
   const downloadBtn = document.querySelector('a#download-apk');
 
-  downloadBtn.addEventListener('click', () => {
+  downloadBtn?.addEventListener('click', () => {
     track('click_download_apk', {
       location: 'download'
     });

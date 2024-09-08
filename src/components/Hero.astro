@@ -31,13 +31,13 @@ import { Button } from './ui/Button';
   const downloadBtn = document.querySelector('#hero_download');
   const howItWorks = document.querySelector('#how-it-works');
 
-  downloadBtn.addEventListener('click', () => {
+  downloadBtn?.addEventListener('click', () => {
     track('click_download', {
       location: 'hero'
     });
   });
 
-  howItWorks.addEventListener('click', () => {
+  howItWorks?.addEventListener('click', () => {
     track('click_how_it_works', {
       location: 'hero'
     });
