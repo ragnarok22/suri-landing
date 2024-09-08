@@ -14,7 +14,7 @@ import { Image } from 'astro:assets';
 				</p>
 			</div>
 			<div class="space-x-4 flex items-start">
-        <a href="https://github.com/ragnarok22/suriApp/releases/download/v0.2.2/suri-0.2.2.apk" class="">
+        <a href="https://github.com/ragnarok22/suriApp/releases/download/v0.2.2/suri-0.2.2.apk" class="" id="download-apk">
           <Image src="/apk-badge.svg" alt="Android APK" width={150} height={50} />
 				</a>
 				<a href="#" class="opacity-50 dark:text-white h-[50px] w-auto">
@@ -29,3 +29,15 @@ import { Image } from 'astro:assets';
 		</div>
 	</div>
 </section>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  const downloadBtn = document.querySelector('a#download-apk');
+
+  downloadBtn.addEventListener('click', () => {
+    track('click_download_apk', {
+      location: 'download'
+    });
+  });
+</script>

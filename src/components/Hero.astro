@@ -15,12 +15,31 @@ import { Button } from './ui/Button';
 			</div>
 			<div class="space-x-4">
         <Button>
-          <a href="#download">Download Now</a>
+          <a href="#download" id="hero_download">Download Now</a>
         </Button>
         <Button variant="outline">
-          <a href="#how-it-works">Learn More</a>
+          <a href="#how-it-works" id="how-it-works">Learn More</a>
         </Button>
 			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  const downloadBtn = document.querySelector('#hero_download');
+  const howItWorks = document.querySelector('#how-it-works');
+
+  downloadBtn.addEventListener('click', () => {
+    track('click_download', {
+      location: 'hero'
+    });
+  });
+
+  howItWorks.addEventListener('click', () => {
+    track('click_how_it_works', {
+      location: 'hero'
+    });
+  });
+</script>
