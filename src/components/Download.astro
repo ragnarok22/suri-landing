@@ -21,9 +21,8 @@ import { Image } from 'astro:assets';
           <Image src="/google-play-badge.png" alt="Google Play" width={150} height={50} />
           <span>(Coming Soon)</span>
 				</a>
-				<a href="#" class="opacity-50 dark:text-white">
+				<a href="https://apps.apple.com/app/suri-app/id6736572891" class="dark:text-white" id="download-apple">
           <Image src="/app-store-badge.svg" alt="App Store" width={150} height={50} />
-          <span>(Coming Soon)</span>
 				</a>
 			</div>
 		</div>
@@ -34,9 +33,15 @@ import { Image } from 'astro:assets';
   import { track } from '@vercel/analytics';
 
   const downloadBtn = document.querySelector('a#download-apk');
+  const downloadAppleBtn = document.querySelector('a#download-apple');
 
   downloadBtn?.addEventListener('click', () => {
     track('click_download_apk', {
+      location: 'download'
+    });
+  });
+  downloadAppleBtn?.addEventListener('click', () => {
+    track('click_download_apple', {
       location: 'download'
     });
   });
