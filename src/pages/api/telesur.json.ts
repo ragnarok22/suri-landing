@@ -47,8 +47,47 @@ export const GET: APIRoute = ({ params, request }) => {
     },
   } as const;
 
+  const version = "0.3.2";
+
+  const data_plans = [{
+    id: 1,
+    duration: "12 hours",
+    data: 150,
+    price: 28,
+    code: "NET 12",
+  }, {
+    id: 2,
+    duration: "1 day",
+    data: 2560,
+    price: 53,
+    code: "NET 1D",
+  },
+  {
+    id: 3,
+    duration: "3 days",
+    data: 4608,
+    price: 106,
+    code: "NET 3D",
+  },
+  {
+    id: 4,
+    duration: "7 days",
+    data: 10752,
+    price: 266,
+    code: "NET 7D",
+  },
+  {
+    id: 5,
+    duration: "30 days",
+    data: 25600,
+    price: 799,
+    code: "NET 30D",
+  }]
+
   const telesur = {
     prepaid,
+    version,
+    data_plans,
   };
 
   return new Response(JSON.stringify(telesur));
