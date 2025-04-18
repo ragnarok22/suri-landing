@@ -1,27 +1,46 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 ---
 
-<header class="px-4 lg:px-6 h-14 flex items-center dark:bg-gray-800 dark:text-gray-400">
+<header
+  class="px-4 lg:px-6 h-14 flex items-center dark:bg-gray-800 dark:text-gray-400"
+>
   <a href="/" class="flex items-center justify-center">
-    <Image src="/suri-logo.jpg" class="rounded-full" alt="Suri Logo" width={32} height={32} loading="eager" />
+    <Image
+      src="/suri-logo.jpg"
+      class="rounded-full"
+      alt="Suri Logo"
+      width={32}
+      height={32}
+      loading="eager"
+    />
     <span class="ml-2 text-2xl font-bold dark:text-gray-100">Suri</span>
-	</a>
-	<nav class="ml-auto flex gap-4 sm:gap-6">
-    <a class="text-sm font-medium hover:underline underline-offset-4" href="/#features">Features</a>
-    <a class="text-sm font-medium hover:underline underline-offset-4" href="/#how-it-works">How It Works</a>
-    <a class="text-sm font-medium hover:underline underline-offset-4" href="/#download" id="header_download">Download</a>
-	</nav>
+  </a>
+  <nav class="ml-auto flex gap-4 sm:gap-6">
+    <a
+      class="text-sm font-medium hover:underline underline-offset-4"
+      href="/#features">Features</a
+    >
+    <a
+      class="text-sm font-medium hover:underline underline-offset-4"
+      href="/#how-it-works">How It Works</a
+    >
+    <a
+      class="text-sm font-medium hover:underline underline-offset-4"
+      href="/#download"
+      id="header_download">Download</a
+    >
+  </nav>
 </header>
 
 <script>
-  import { track } from '@vercel/analytics';
+  import { track } from '@vercel/analytics'
 
-  const downloadBtn = document.querySelector('a#header_download');
+  const downloadBtn = document.querySelector('a#header_download')
 
   downloadBtn?.addEventListener('click', () => {
     track('click_download', {
-      location: 'header'
-    });
-  });
+      location: 'header',
+    })
+  })
 </script>

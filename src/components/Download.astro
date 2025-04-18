@@ -1,48 +1,84 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 ---
 
-<section id="download" class="w-full flex justify-center py-12 md:py-24 lg:py-32 dark:bg-gray-700">
-	<div class="container px-4 md:px-6">
-		<div class="flex flex-col items-center space-y-4 text-center">
-			<div class="space-y-4 md:space-y-2">
-				<h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl dark:text-gray-100">
+<section
+  id="download"
+  class="w-full flex justify-center py-12 md:py-24 lg:py-32 dark:bg-gray-700"
+>
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center space-y-4 text-center">
+      <div class="space-y-4 md:space-y-2">
+        <h2
+          class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl dark:text-gray-100"
+        >
           Download Suri Now
-				</h2>
-				<p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-200">
-          Start managing your mobile credit and data plans with ease. Download Suri today and stay connected.
-				</p>
-			</div>
-			<div class="md:space-x-4 flex flex-col items-center md:items-start gap-4 md:flex-row">
-        <a href="https://github.com/ragnarok22/suri-landing/releases/download/v0.3.2-1/v0.3.2.1.apk" class="h-auto" id="download-apk">
-          <Image src="/apk-badge.svg" alt="Android APK" width={150} height={50} />
-				</a>
-				<a href="#" class="opacity-50 dark:text-white h-auto md:h-[50px] w-auto">
-          <Image src="/google-play-badge.png" alt="Google Play" width={150} height={50} />
+        </h2>
+        <p
+          class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-200"
+        >
+          Start managing your mobile credit and data plans with ease. Download
+          Suri today and stay connected.
+        </p>
+      </div>
+      <div
+        class="md:space-x-4 flex flex-col items-center md:items-start gap-4 md:flex-row"
+      >
+        <a
+          href="https://github.com/ragnarok22/suri-landing/releases/download/v0.3.2-1/v0.3.2.1.apk"
+          class="h-auto"
+          id="download-apk"
+        >
+          <Image
+            src="/apk-badge.svg"
+            alt="Android APK"
+            width={150}
+            height={50}
+          />
+        </a>
+        <a
+          href="#"
+          class="opacity-50 dark:text-white h-auto md:h-[50px] w-auto"
+        >
+          <Image
+            src="/google-play-badge.png"
+            alt="Google Play"
+            width={150}
+            height={50}
+          />
           <span>(Coming Soon)</span>
-				</a>
-				<a href="https://apps.apple.com/app/suri-app/id6736572891" class="dark:text-white" id="download-apple">
-          <Image src="/app-store-badge.svg" alt="App Store" width={150} height={50} />
-				</a>
-			</div>
-		</div>
-	</div>
+        </a>
+        <a
+          href="https://apps.apple.com/app/suri-app/id6736572891"
+          class="dark:text-white"
+          id="download-apple"
+        >
+          <Image
+            src="/app-store-badge.svg"
+            alt="App Store"
+            width={150}
+            height={50}
+          />
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
-  import { track } from '@vercel/analytics';
+  import { track } from '@vercel/analytics'
 
-  const downloadBtn = document.querySelector('a#download-apk');
-  const downloadAppleBtn = document.querySelector('a#download-apple');
+  const downloadBtn = document.querySelector('a#download-apk')
+  const downloadAppleBtn = document.querySelector('a#download-apple')
 
   downloadBtn?.addEventListener('click', () => {
     track('click_download_apk', {
-      location: 'download'
-    });
-  });
+      location: 'download',
+    })
+  })
   downloadAppleBtn?.addEventListener('click', () => {
     track('click_download_apple', {
-      location: 'download'
-    });
-  });
+      location: 'download',
+    })
+  })
 </script>

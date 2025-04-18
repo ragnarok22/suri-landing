@@ -1,9 +1,15 @@
 ---
-import { Button as ReactButton } from './Button';
+import { Button as ReactButton } from './Button'
 
-const { variant, size, class: className, ...props } = Astro.props;
+const { variant, size, class: className, ...props } = Astro.props
 ---
 
-<ReactButton client:load variant={variant} size={size} className={className} {...props}>
+<ReactButton
+  client:load
+  variant={variant}
+  size={size}
+  className={className}
+  {...props}
+>
   <slot />
 </ReactButton>

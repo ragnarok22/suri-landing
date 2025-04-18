@@ -1,40 +1,64 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions'
+import '../styles/global.css'
 
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-    <meta name="description" content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly.">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
 
-    <meta property="twitter:image" content="https://suri.reinierhernandez.com/og.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Suri App - Manage Your Telesur Mobile Plans with Ease">
-    <meta property="twitter:description" content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly.">
-    <meta property="twitter:url" content="https://suri.reinierhernandez.com">
+    <meta
+      property="twitter:image"
+      content="https://suri.reinierhernandez.com/og.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
+    />
+    <meta
+      property="twitter:description"
+      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
+    />
+    <meta property="twitter:url" content="https://suri.reinierhernandez.com" />
 
-    <meta property="og:image" content="https://suri.reinierhernandez.com/og.png">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Suri App - Manage Your Telesur Mobile Plans with Ease">
-    <meta property="og:title" content="Suri App - Manage Your Telesur Mobile Plans with Ease">
-    <meta property="og:description" content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly.">
-    <meta property="og:url" content="https://suri.reinierhernandez.com">
+    <meta
+      property="og:image"
+      content="https://suri.reinierhernandez.com/og.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
+    />
+    <meta
+      property="og:title"
+      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
+    />
+    <meta
+      property="og:description"
+      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
+    />
+    <meta property="og:url" content="https://suri.reinierhernandez.com" />
 
-		<title>{title}</title>
-		<ClientRouter />
-	</head>
-	<body>
-		<slot />
-	</body>
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
