@@ -1,37 +1,87 @@
 ---
-import { PhoneIcon, CreditCardIcon, WifiIcon } from 'lucide-react'
+import { Check, Calendar, Bell, Cloud, TrendingUp, Shield } from 'lucide-react'
 ---
 
-<section
-  id="features"
-  class="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
->
-  <div class="container px-4 md:px-6">
-    <h2
-      class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-gray-50"
-    >
-      Features
-    </h2>
-    <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-      <div class="flex flex-col items-center text-center">
-        <PhoneIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Check Balance</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Check your balance and data plans instantly.
+<section id="features" class="py-20 md:py-32">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Everything You Need in One App
+      </h2>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+        Discover the features that make Suri the best application for your
+        day-to-day life
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <Check />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Simplified Tasks</h3>
+        <p class="text-gray-500">
+          Organize your daily tasks with our intuitive system and never forget
+          an important task again.
         </p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <CreditCardIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Easy Top-up</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Top up your account effortlessly with just a few taps.
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <Calendar />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Integrated Calendar</h3>
+        <p class="text-gray-500">
+          Synchronize all your events and appointments in one place with
+          customizable reminders.
         </p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <WifiIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Data Plans</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Explore and purchase data plans that fit your needs.
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <Bell />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Smart Notifications</h3>
+        <p class="text-gray-500">
+          Receive alerts just when you need them, without unnecessary
+          interruptions.
+        </p>
+      </div>
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <Cloud />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Cloud Synchronization</h3>
+        <p class="text-gray-500">
+          Access all your data from any device with automatic synchronization.
+        </p>
+      </div>
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <TrendingUp />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Productivity Analysis</h3>
+        <p class="text-gray-500">
+          Visualize your progress with custom charts and improve your efficiency
+          day by day.
+        </p>
+      </div>
+      <div
+        class="bg-white p-8 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="text-4xl text-indigo-600 mb-4">
+          <Shield />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Guaranteed Privacy</h3>
+        <p class="text-gray-500">
+          Your data is always secure and protected with bank-level encryption.
         </p>
       </div>
     </div>

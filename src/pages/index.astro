@@ -1,22 +1,32 @@
 ---
-import Layout from '@/layouts/Layout.astro'
 import Header from '@/components/Header.astro'
 import Hero from '@/components/Hero.astro'
 import Features from '@/components/Features.astro'
 import HowItWorks from '@/components/HowItWorks.astro'
-import Screenshots from '@/components/Screenshots.astro'
-import Download from '@/components/Download.astro'
+import Testimonials from '@/components/Testimonials.astro'
+import CTA from '@/components/CTA.astro'
 import Footer from '@/components/Footer.astro'
+
+import '@/styles/global.css'
 ---
 
-<Layout title="Suri - Easily manage your mobile credit and data plans">
-  <Header />
-  <main>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suri App - Simplify Your Day-to-Day</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="font-inter text-gray-800 bg-white">
+    <Header />
     <Hero />
     <Features />
     <HowItWorks />
-    <Screenshots />
-    <Download />
-  </main>
-  <Footer />
-</Layout>
+    <Testimonials />
+    <CTA />
+    <Footer />
+  </body>
+</html>

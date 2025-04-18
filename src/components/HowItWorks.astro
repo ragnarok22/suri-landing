@@ -1,41 +1,49 @@
----
-import { CloudDownload, Wrench } from 'lucide-react'
----
-
-<section
-  id="how-it-works"
-  class="w-full flex justify-center py-12 md:py-24 lg:py-32 dark:bg-gray-950"
->
-  <div class="container px-4 md:px-6">
-    <h2
-      class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-gray-100"
-    >
-      How It Works
-    </h2>
-    <div class="grid gap-6 lg:grid-cols-2">
-      <div
-        class="flex items-center gap-4 rounded-lg border dark:border-gray-500 bg-card text-card-foreground dark:bg-gray-700 shadow-xs p-6"
-      >
-        <CloudDownload className="h-12 w-12 mx-auto text-primary" />
-        <div class="w-full">
-          <h3 class="text-2xl font-bold mb-2 dark:text-gray-100">
-            1. Download Suri
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            Get the app from your device's app store.
+<section id="how-it-works" class="py-20 md:py-32 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">How Suri Works</h2>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+        Three simple steps to start organizing your life
+      </p>
+    </div>
+    <div class="space-y-16 max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div
+          class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold"
+        >
+          1
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Download the App</h3>
+          <p class="text-gray-500">
+            Available for iOS and Android for free in major app stores.
           </p>
         </div>
       </div>
-      <div
-        class="flex items-center gap-4 rounded-lg border dark:border-gray-500 bg-card text-card-foreground dark:bg-gray-700 shadow-xs p-6"
-      >
-        <Wrench className="h-12 w-12 mx-auto text-primary" />
-        <div class="w-full">
-          <h3 class="text-2xl font-bold mb-2 dark:text-gray-100">
-            2. Start Managing
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            Check your balance, top up credit, and manage data plans with ease.
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div
+          class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold"
+        >
+          2
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Create Your Account</h3>
+          <p class="text-gray-500">
+            Sign up in seconds with your email or your favorite social networks.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div
+          class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xl font-bold"
+        >
+          3
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Start Organizing!</h3>
+          <p class="text-gray-500">
+            Add your first tasks and events to start enjoying a more organized
+            life.
           </p>
         </div>
       </div>
