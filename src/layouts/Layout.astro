@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
+import PostHog from '@/components/posthog.astro'
 
 interface Props {
   title: string
@@ -54,6 +55,8 @@ const { title } = Astro.props
       content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
     />
     <meta property="og:url" content="https://suri.reinierhernandez.com" />
+
+    <PostHog />
 
     <title>{title}</title>
     <ClientRouter />
