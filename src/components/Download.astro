@@ -75,9 +75,15 @@ import { Image } from 'astro:assets'
     track('click_download_apk', {
       location: 'download',
     })
+    window.posthog.capture('click_download_apk', {
+      location: 'download',
+    })
   })
   downloadAppleBtn?.addEventListener('click', () => {
     track('click_download_apple', {
+      location: 'download',
+    })
+    window.posthog.capture('click_download_apple', {
       location: 'download',
     })
   })

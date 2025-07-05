@@ -42,5 +42,8 @@ import { Image } from 'astro:assets'
     track('click_download', {
       location: 'header',
     })
+    window.posthog.capture('click_download', {
+      location: 'header',
+    })
   })
 </script>
