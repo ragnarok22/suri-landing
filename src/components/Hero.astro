@@ -42,10 +42,16 @@ import { Button } from '@/components/ui/Button'
     track('click_download', {
       location: 'hero',
     })
+    window.posthog.capture('click_download', {
+      location: 'hero',
+    })
   })
 
   howItWorks?.addEventListener('click', () => {
     track('click_how_it_works', {
+      location: 'hero',
+    })
+    window.posthog.capture('click_how_it_works', {
       location: 'hero',
     })
   })
