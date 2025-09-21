@@ -1,7 +1,7 @@
 {
   "name": "suri-landing",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,25 +12,25 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/vercel": "^8.2.6",
-    "@tailwindcss/vite": "^4.1.12",
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.7",
+    "@astrojs/react": "^4.3.1",
+    "@astrojs/vercel": "^8.2.7",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "@vercel/analytics": "^1.5.0",
-    "astro": "^5.13.2",
+    "astro": "^5.13.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.493.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^4.1.12",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "prettier": "3.5.3",
+    "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1"
   },
-  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
+  "packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef"
 }
