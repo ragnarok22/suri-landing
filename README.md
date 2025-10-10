@@ -2,7 +2,7 @@
 
 Official landing page for **Suri**, a mobile app designed to help users effortlessly manage their Telesur phone credit and mobile data plans in Suriname.
 
-🌐 **Live Site**: [suri.reinierhernandez.com](https://suri.reinierhernandez.com)
+🌐 **Live Site**: [suriapp.sr](https://suriapp.sr)
 
 ## About
 
