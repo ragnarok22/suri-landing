@@ -1,0 +1,64 @@
+---
+// Structured data (JSON-LD) for SEO - Mobile Application + Organization Schema
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'MobileApplication',
+        name: 'Suri',
+        operatingSystem: 'iOS, Android',
+        applicationCategory: 'UtilitiesApplication',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.5',
+          ratingCount: '100',
+        },
+        description:
+          'Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account.',
+        screenshot: [
+          'https://suriapp.sr/screenshot1.png',
+          'https://suriapp.sr/screenshot2.png',
+          'https://suriapp.sr/screenshot3.png',
+        ],
+        downloadUrl: 'https://apps.apple.com/app/suri-app/id6736572891',
+        image: 'https://suriapp.sr/suri-logo.jpg',
+        author: {
+          '@type': 'Organization',
+          name: 'Suri App Team',
+        },
+      },
+      {
+        '@type': 'Organization',
+        name: 'Suri App',
+        url: 'https://suriapp.sr',
+        logo: 'https://suriapp.sr/suri-logo.jpg',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: 'limbatusdev@gmail.com',
+          contactType: 'Customer Support',
+        },
+        sameAs: [],
+      },
+      {
+        '@type': 'WebSite',
+        name: 'Suri App',
+        url: 'https://suriapp.sr',
+        description:
+          'Manage your Telesur mobile credit and data plans with ease',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Suri App Team',
+        },
+      },
+    ],
+  })}
+/>

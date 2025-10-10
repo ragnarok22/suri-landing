@@ -2,55 +2,59 @@
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
 import PostHog from '@/components/posthog.astro'
+import StructuredData from '@/components/StructuredData.astro'
 
 interface Props {
   title: string
+  description?: string
+  ogImage?: string
+  keywords?: string
+  author?: string
 }
 
-const { title } = Astro.props
+const {
+  title,
+  description = 'Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly.',
+  ogImage = 'https://suriapp.sr/og.png',
+  keywords = 'Suri, Telesur, Suriname, mobile credit, data plans, phone top-up, mobile app, prepaid, recharge',
+  author = 'Suri App Team',
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
+const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/suri-logo.jpg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <meta property="twitter:image" content="https://suriapp.sr/og.png" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
-    />
-    <meta
-      property="twitter:description"
-      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
-    />
-    <meta property="twitter:url" content="https://suriapp.sr" />
-
-    <meta property="og:image" content="https://suriapp.sr/og.png" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:site_name"
-      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
-    />
-    <meta
-      property="og:title"
-      content="Suri App - Manage Your Telesur Mobile Plans with Ease"
-    />
-    <meta
-      property="og:description"
-      content="Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account. Secure, efficient, and user-friendly."
-    />
-    <meta property="og:url" content="https://suriapp.sr" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
 
     <PostHog />
+    <StructuredData />
 
     <title>{title}</title>
     <ClientRouter />
