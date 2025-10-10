@@ -56,28 +56,34 @@ src/
 ## Key Architecture Patterns
 
 ### Path Aliases
+
 - Use `@/*` imports (configured in tsconfig.json): `import Layout from '@/layouts/Layout.astro'`
 
 ### Component Strategy
+
 - **Astro components**: For static/server-rendered sections (Header, Hero, Features, etc.)
 - **React components**: For interactive UI elements (Button.tsx)
 - Both can coexist (e.g., Button.astro wraps styling, Button.tsx handles interactivity)
 
 ### Styling
+
 - Tailwind CSS 4 integrated via Vite plugin (not PostCSS)
 - Use `cn()` utility from `@/lib/utils.ts` for conditional classes
 - Prettier configured to format .astro files with prettier-plugin-astro
 
 ### API Routes
+
 - `/api/telesur.json.ts`: Returns JSON with Telesur prepaid options, data plans, and app version
 - Used by the mobile app to fetch current service codes and pricing
 
 ### Server-Side Rendering
+
 - Output mode: `server` (astro.config.mjs)
 - Deployed to Vercel with SSR adapter
 - Vercel Web Analytics enabled in adapter config
 
 ### Analytics
+
 - PostHog analytics injected via `posthog.astro` component in Layout
 - Component excluded from Prettier formatting (see .prettierignore)
 
