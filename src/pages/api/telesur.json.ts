@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { scrapeTelesurPrepaid } from '@/lib/telesur-scraper'
 
 type TelesurOptionsType = {
   call: {
@@ -23,7 +24,7 @@ type TelesurOptionsType = {
   }
 }
 
-export const GET: APIRoute = ({ params, request }) => {
+export const GET: APIRoute = async ({ params, request }) => {
   const prepaid: TelesurOptionsType = {
     call: {
       CHECK_BALANCE: '*132#',
@@ -49,43 +50,8 @@ export const GET: APIRoute = ({ params, request }) => {
 
   const version = '0.3.2'
 
-  const data_plans = [
-    {
-      id: 1,
-      duration: '12 hours',
-      data: 1024,
-      price: 31,
-      code: 'NET 12',
-    },
-    {
-      id: 2,
-      duration: '1 day',
-      data: 10240,
-      price: 59,
-      code: 'NET 1D',
-    },
-    {
-      id: 3,
-      duration: '3 days',
-      data: 30720,
-      price: 115,
-      code: 'NET 3D',
-    },
-    {
-      id: 4,
-      duration: '7 days',
-      data: 71680,
-      price: 294,
-      code: 'NET 7D',
-    },
-    {
-      id: 5,
-      duration: '30 days',
-      data: 307200,
-      price: 856,
-      code: 'NET 30D',
-    },
-  ]
+  // Fetch data plans from Telesur website with 24h cache
+  const data_plans = await scrapeTelesurPrepaid()
 
   const telesur = {
     prepaid,
