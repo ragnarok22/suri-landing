@@ -23,7 +23,7 @@ All commands use pnpm:
 - **Type checking**: `astro check` (runs automatically before build)
 - **Build**: `pnpm build` (includes type check + astro build)
 - **Preview build**: `pnpm preview`
-- **Format code**: `pnpm prettier` (formats all files using Prettier)
+- **Format code**: `pnpm format` (formats all files using Prettier)
 
 ## Project Structure
 

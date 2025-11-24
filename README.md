@@ -59,7 +59,7 @@ pnpm preview
 Format all files with Prettier:
 
 ```bash
-pnpm prettier
+pnpm format
 ```
 
 ## Project Structure
