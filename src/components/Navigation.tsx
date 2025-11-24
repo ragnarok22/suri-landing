@@ -22,14 +22,25 @@ export default function Navigation() {
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false)
+
+    // If we're not on the homepage, navigate there first
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`
+      return
+    }
+
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const handleLogoClick = () => {
+    if (window.location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      window.location.href = '/'
+    }
   }
 
   const handleDownloadClick = () => {
@@ -55,7 +66,7 @@ export default function Navigation() {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div
           className="flex items-center gap-2 cursor-pointer"
-          onClick={scrollToTop}
+          onClick={handleLogoClick}
         >
           <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/30 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-400 blur-md opacity-50"></div>
