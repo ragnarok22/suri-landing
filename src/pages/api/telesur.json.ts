@@ -24,7 +24,7 @@ type TelesurOptionsType = {
   }
 }
 
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async () => {
   const prepaid: TelesurOptionsType = {
     call: {
       CHECK_BALANCE: '*132#',
