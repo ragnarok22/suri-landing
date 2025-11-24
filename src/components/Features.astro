@@ -2,17 +2,19 @@
 import { Shield, Zap, Wifi } from 'lucide-react'
 ---
 
-<section id="features" class="py-24 bg-white relative">
+<section id="features" class="py-24 bg-white dark:bg-slate-950 relative">
   <!-- Subtle accent blob -->
   <div
-    class="absolute top-1/2 left-0 w-64 h-64 bg-yellow-100/30 blur-3xl rounded-full -translate-y-1/2 pointer-events-none"
+    class="absolute top-1/2 left-0 w-64 h-64 bg-yellow-100/30 dark:bg-yellow-900/10 blur-3xl rounded-full -translate-y-1/2 pointer-events-none"
   >
   </div>
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-slate-900 mb-4">Why choose Suri?</h2>
-      <p class="text-slate-600">
+      <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+        Why choose Suri?
+      </h2>
+      <p class="text-slate-600 dark:text-slate-300">
         Designed for speed and simplicity. Suri gives you direct control over
         your prepaid and postpaid services.
       </p>
@@ -20,44 +22,50 @@ import { Shield, Zap, Wifi } from 'lucide-react'
 
     <div class="grid md:grid-cols-3 gap-8">
       <div
-        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-all duration-300 group"
       >
         <div
-          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
         >
           <Shield className="w-7 h-7" />
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Reliable & Secure</h3>
-        <p class="text-slate-500 leading-relaxed">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+          Reliable & Secure
+        </h3>
+        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
           Your transactions are encrypted and processed instantly. No more
           failed USSD codes.
         </p>
       </div>
 
       <div
-        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-all duration-300 group"
       >
         <div
-          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
         >
           <Zap className="w-7 h-7" />
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Instant Top-up</h3>
-        <p class="text-slate-500 leading-relaxed">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+          Instant Top-up
+        </h3>
+        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
           Recharge your account in seconds using vouchers or digital payments.
         </p>
       </div>
 
       <div
-        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-all duration-300 group"
       >
         <div
-          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
         >
           <Wifi className="w-7 h-7" />
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Best Data Bundles</h3>
-        <p class="text-slate-500 leading-relaxed">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+          Best Data Bundles
+        </h3>
+        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
           Easily compare and activate data plans that suit your budget and
           lifestyle.
         </p>

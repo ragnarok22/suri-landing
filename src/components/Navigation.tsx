@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { track } from '@vercel/analytics'
+import ThemeToggle from './ThemeToggle'
 
 declare global {
   interface Window {
@@ -63,7 +64,7 @@ export default function Navigation() {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm py-4'
+          ? 'bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-sm py-4'
           : 'bg-transparent py-6'
       }`}
     >
@@ -76,11 +77,7 @@ export default function Navigation() {
             <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-400 blur-md opacity-50"></div>
             S
           </div>
-          <span
-            className={`text-2xl font-bold tracking-tight ${
-              isScrolled ? 'text-slate-900' : 'text-slate-900'
-            }`}
-          >
+          <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
             Suri
           </span>
         </div>
@@ -93,14 +90,15 @@ export default function Navigation() {
               onClick={() =>
                 scrollToSection(item.toLowerCase().replace(/\s/g, '-'))
               }
-              className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+              className="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
             >
               {item}
             </button>
           ))}
+          <ThemeToggle />
           <button
             onClick={handleDownloadClick}
-            className="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 transition-all hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0"
+            className="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 transition-all hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0"
           >
             Download App
           </button>
@@ -108,7 +106,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-slate-600"
+          className="md:hidden p-2 text-slate-600 dark:text-slate-300"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -117,7 +115,7 @@ export default function Navigation() {
 
       {/* Mobile Nav Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-xl transition-all duration-300 overflow-hidden ${
+        className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 shadow-xl transition-all duration-300 overflow-hidden ${
           mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -128,14 +126,20 @@ export default function Navigation() {
               onClick={() =>
                 scrollToSection(item.toLowerCase().replace(/\s/g, '-'))
               }
-              className="text-left text-lg font-medium text-slate-600"
+              className="text-left text-lg font-medium text-slate-600 dark:text-slate-300"
             >
               {item}
             </button>
           ))}
+          <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700">
+            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+              Theme
+            </span>
+            <ThemeToggle />
+          </div>
           <button
             onClick={handleDownloadClick}
-            className="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg"
+            className="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-500 transition-colors"
           >
             Download App
           </button>

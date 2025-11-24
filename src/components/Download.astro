@@ -5,31 +5,35 @@ import { Download as DownloadIcon } from 'lucide-react'
 
 <section
   id="download"
-  class="py-24 bg-gradient-to-br from-slate-50 to-emerald-50/30 relative overflow-hidden"
+  class="py-24 bg-gradient-to-br from-slate-50 to-emerald-50/30 dark:from-slate-900 dark:to-emerald-950/30 relative overflow-hidden"
 >
   <!-- Background decoration -->
   <div
-    class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl"
+    class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/20 dark:bg-emerald-900/10 rounded-full blur-3xl"
   >
   </div>
   <div
-    class="absolute bottom-0 left-0 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl"
+    class="absolute bottom-0 left-0 w-96 h-96 bg-yellow-200/20 dark:bg-yellow-900/10 rounded-full blur-3xl"
   >
   </div>
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
       <div
-        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-6 border border-emerald-200"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700"
       >
         <DownloadIcon className="w-4 h-4" />
         <span>Ready to get started?</span>
       </div>
 
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      <h2
+        class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
+      >
         Download Suri Now
       </h2>
-      <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+      <p
+        class="text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto"
+      >
         Start managing your mobile credit and data plans with ease. Download
         Suri today and stay connected.
       </p>
@@ -59,7 +63,7 @@ import { Download as DownloadIcon } from 'lucide-react'
             height={60}
           />
           <span
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/80 dark:bg-slate-700/80 text-white text-xs font-bold px-3 py-1 rounded-full"
           >
             Coming Soon
           </span>
@@ -80,7 +84,7 @@ import { Download as DownloadIcon } from 'lucide-react'
       </div>
 
       <div
-        class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-slate-500"
+        class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-slate-500 dark:text-slate-400"
       >
         <span class="flex items-center gap-2">
           <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
