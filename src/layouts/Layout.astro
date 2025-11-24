@@ -32,7 +32,7 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
     <meta name="keywords" content={keywords} />
     <meta name="author" content={author} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#10b981" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/suri-logo.jpg" />
     <link rel="canonical" href={canonicalURL} />
@@ -59,7 +59,9 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
     <title>{title}</title>
     <ClientRouter />
   </head>
-  <body>
+  <body
+    class="text-slate-900 bg-slate-50 min-h-screen selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden"
+  >
     <slot />
   </body>
 </html>

@@ -1,42 +1,115 @@
 ---
-import { CloudDownload, Wrench } from 'lucide-react'
+import { Download } from 'lucide-react'
 ---
 
 <section
   id="how-it-works"
-  class="w-full flex justify-center py-12 md:py-24 lg:py-32 dark:bg-gray-950"
+  class="py-24 bg-emerald-950 text-white overflow-hidden relative"
 >
-  <div class="container px-4 md:px-6">
-    <h2
-      class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-gray-100"
-    >
-      How It Works
-    </h2>
-    <div class="grid gap-6 lg:grid-cols-2">
-      <div
-        class="flex items-center gap-4 rounded-lg border dark:border-gray-500 bg-card text-card-foreground dark:bg-gray-700 shadow-xs p-6"
-      >
-        <CloudDownload className="h-12 w-12 mx-auto text-primary" />
-        <div class="w-full">
-          <h3 class="text-2xl font-bold mb-2 dark:text-gray-100">
-            1. Download Suri
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            Get the app from your device's app store.
-          </p>
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-10"
+    style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 32px 32px;"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-16">
+      <div class="md:w-1/2">
+        <div
+          class="inline-block px-3 py-1 bg-emerald-900 rounded-full text-emerald-300 text-xs font-bold mb-6 border border-emerald-800"
+        >
+          EASY SETUP
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Simple. Fast. Connected.
+        </h2>
+        <div class="space-y-8">
+          <div class="flex gap-6 group">
+            <div
+              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 transition-colors"
+            >
+              01
+            </div>
+            <div>
+              <h4
+                class="text-xl font-bold mb-2 group-hover:text-emerald-300 transition-colors"
+              >
+                Download Suri
+              </h4>
+              <p class="text-slate-400">
+                Get the app directly from our website or app store.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div
+              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 transition-colors"
+            >
+              02
+            </div>
+            <div>
+              <h4
+                class="text-xl font-bold mb-2 group-hover:text-emerald-300 transition-colors"
+              >
+                Auto-Connect
+              </h4>
+              <p class="text-slate-400">
+                We automatically detect your carrier and status.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div
+              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 transition-colors"
+            >
+              03
+            </div>
+            <div>
+              <h4
+                class="text-xl font-bold mb-2 group-hover:text-emerald-300 transition-colors"
+              >
+                Take Control
+              </h4>
+              <p class="text-slate-400">
+                Top up, buy data, and track your usage immediately.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div
-        class="flex items-center gap-4 rounded-lg border dark:border-gray-500 bg-card text-card-foreground dark:bg-gray-700 shadow-xs p-6"
-      >
-        <Wrench className="h-12 w-12 mx-auto text-primary" />
-        <div class="w-full">
-          <h3 class="text-2xl font-bold mb-2 dark:text-gray-100">
-            2. Start Managing
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            Check your balance, top up credit, and manage data plans with ease.
-          </p>
+
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <!-- Glow behind stats -->
+          <div class="absolute inset-0 bg-emerald-500 blur-[100px] opacity-20">
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-40 h-40 flex flex-col justify-center items-center transform translate-y-8 hover:bg-white/10 transition-colors"
+            >
+              <span class="text-4xl font-bold mb-2">10k+</span>
+              <span class="text-xs text-emerald-200">Downloads</span>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-40 h-40 flex flex-col justify-center items-center hover:bg-white/10 transition-colors"
+            >
+              <span class="text-4xl font-bold mb-2">4.8</span>
+              <span class="text-xs text-emerald-200">User Rating</span>
+            </div>
+            <div
+              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-40 h-40 flex flex-col justify-center items-center transform translate-y-8 hover:bg-white/10 transition-colors"
+            >
+              <span class="text-4xl font-bold mb-2">24/7</span>
+              <span class="text-xs text-emerald-200">Availability</span>
+            </div>
+            <div
+              class="bg-emerald-600 p-6 rounded-2xl w-40 h-40 flex flex-col justify-center items-center shadow-lg shadow-emerald-500/30 cursor-pointer hover:bg-emerald-500 transition-colors group"
+            >
+              <Download className="w-8 h-8 mb-2 group-hover:animate-bounce" />
+              <span class="text-xs font-bold">Get it now</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

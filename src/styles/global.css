@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #4caf50;
+  --color-primary: #10b981;
   --color-secondary: #e0f7fa;
-  --color-accent: #ffc107;
+  --color-accent: #fbbf24;
   --color-card: #f5f5f5;
   --color-card-foreground: #212121;
 }
@@ -24,6 +24,19 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  body {
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
+    background-color: rgb(248 250 252);
+  }
 }
 
 @utility drop-shadow-custom {
@@ -34,5 +47,24 @@
 @layer utilities {
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }

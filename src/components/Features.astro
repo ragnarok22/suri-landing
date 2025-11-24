@@ -1,37 +1,65 @@
 ---
-import { PhoneIcon, CreditCardIcon, WifiIcon } from 'lucide-react'
+import { Shield, Zap, Wifi } from 'lucide-react'
 ---
 
-<section
-  id="features"
-  class="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
->
-  <div class="container px-4 md:px-6">
-    <h2
-      class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-gray-50"
-    >
-      Features
-    </h2>
-    <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
-      <div class="flex flex-col items-center text-center">
-        <PhoneIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Check Balance</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Check your balance and data plans instantly.
+<section id="features" class="py-24 bg-white relative">
+  <!-- Subtle accent blob -->
+  <div
+    class="absolute top-1/2 left-0 w-64 h-64 bg-yellow-100/30 blur-3xl rounded-full -translate-y-1/2 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">Why choose Suri?</h2>
+      <p class="text-slate-600">
+        Designed for speed and simplicity. Suri gives you direct control over
+        your prepaid and postpaid services.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div
+        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+      >
+        <div
+          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+        >
+          <Shield className="w-7 h-7" />
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Reliable & Secure</h3>
+        <p class="text-slate-500 leading-relaxed">
+          Your transactions are encrypted and processed instantly. No more
+          failed USSD codes.
         </p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <CreditCardIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Easy Top-up</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Top up your account effortlessly with just a few taps.
+
+      <div
+        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+      >
+        <div
+          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+        >
+          <Zap className="w-7 h-7" />
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Instant Top-up</h3>
+        <p class="text-slate-500 leading-relaxed">
+          Recharge your account in seconds using vouchers or digital payments.
         </p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <WifiIcon className="h-12 w-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-2 dark:text-gray-100">Data Plans</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Explore and purchase data plans that fit your needs.
+
+      <div
+        class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group"
+      >
+        <div
+          class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600"
+        >
+          <Wifi className="w-7 h-7" />
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Best Data Bundles</h3>
+        <p class="text-slate-500 leading-relaxed">
+          Easily compare and activate data plans that suit your budget and
+          lifestyle.
         </p>
       </div>
     </div>
