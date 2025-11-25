@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { Download as DownloadIcon } from 'lucide-react'
+import { Download as DownloadIcon, Clock } from 'lucide-react'
 ---
 
 <section
@@ -52,22 +52,25 @@ import { Download as DownloadIcon } from 'lucide-react'
           />
         </a>
 
-        <a
-          href="#"
-          class="relative opacity-50 transition-opacity hover:opacity-60"
-        >
-          <Image
-            src="/google-play-badge.png"
-            alt="Google Play - Coming Soon"
-            width={180}
-            height={60}
-          />
-          <span
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/80 dark:bg-slate-700/80 text-white text-xs font-bold px-3 py-1 rounded-full"
+        <div class="relative">
+          <a
+            href="#"
+            class="relative block opacity-60 transition-opacity hover:opacity-70 cursor-not-allowed grayscale"
           >
-            Coming Soon
-          </span>
-        </a>
+            <Image
+              src="/google-play-badge.png"
+              alt="Google Play - Coming Soon"
+              width={180}
+              height={60}
+            />
+          </a>
+          <div
+            class="absolute -top-2 -right-2 flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-lg shadow-emerald-500/30 dark:shadow-emerald-500/20 animate-pulse-slow"
+          >
+            <Clock className="w-3 h-3" />
+            <span>Soon</span>
+          </div>
+        </div>
 
         <a
           href="https://apps.apple.com/app/suri-app/id6736572891"
