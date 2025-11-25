@@ -84,7 +84,7 @@ export default function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {['Features', 'How it Works'].map((item) => (
+          {['Features', 'How it Works', 'FAQ'].map((item) => (
             <button
               key={item}
               onClick={() =>
@@ -120,7 +120,7 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col p-6 gap-4">
-          {['Features', 'How it Works'].map((item) => (
+          {['Features', 'How it Works', 'FAQ'].map((item) => (
             <button
               key={item}
               onClick={() =>
