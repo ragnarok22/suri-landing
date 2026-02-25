@@ -1,5 +1,7 @@
 /// <reference path="../.astro/types.d.ts" />
 
 interface Window {
-  posthog: any
+  posthog?: {
+    capture: (event: string, properties?: Record<string, string>) => void
+  }
 }

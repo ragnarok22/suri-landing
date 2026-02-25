@@ -8,7 +8,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint . --report-unused-disable-directives",
+    "lint:fix": "eslint . --fix --report-unused-disable-directives",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -29,6 +32,12 @@
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^9.39.3",
+    "eslint-plugin-astro": "^1.6.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
     "tailwindcss": "^4.2.1",

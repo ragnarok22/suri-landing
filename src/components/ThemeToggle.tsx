@@ -1,19 +1,42 @@
-import { useState, useEffect } from 'react'
+import { useSyncExternalStore, useCallback } from 'react'
 import { Moon, Sun } from 'lucide-react'
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
-  const [mounted, setMounted] = useState(false)
+const emptySubscribe = () => () => {}
 
-  useEffect(() => {
-    setMounted(true)
-    const isDark = document.documentElement.classList.contains('dark')
-    setTheme(isDark ? 'dark' : 'light')
+function useIsMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  )
+}
+
+function useTheme() {
+  const subscribe = useCallback((callback: () => void) => {
+    const observer = new MutationObserver(callback)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+    return () => observer.disconnect()
   }, [])
+
+  return useSyncExternalStore(
+    subscribe,
+    () =>
+      document.documentElement.classList.contains('dark')
+        ? ('dark' as const)
+        : ('light' as const),
+    () => 'light' as const
+  )
+}
+
+export default function ThemeToggle() {
+  const mounted = useIsMounted()
+  const theme = useTheme()
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
 
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark')

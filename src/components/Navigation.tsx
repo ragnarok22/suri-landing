@@ -5,7 +5,9 @@ import ThemeToggle from './ThemeToggle'
 
 declare global {
   interface Window {
-    posthog: any
+    posthog?: {
+      capture: (event: string, properties?: Record<string, string>) => void
+    }
   }
 }
 
@@ -30,7 +32,7 @@ export default function Navigation() {
 
     // If we're not on the homepage, navigate there first
     if (window.location.pathname !== '/') {
-      window.location.href = `/#${id}`
+      window.location.assign(`/#${id}`)
       return
     }
 
@@ -44,7 +46,7 @@ export default function Navigation() {
     if (window.location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
-      window.location.href = '/'
+      window.location.assign('/')
     }
   }
 
