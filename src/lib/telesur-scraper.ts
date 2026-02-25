@@ -58,7 +58,12 @@ export function parsePrice(priceStr: string): number {
     // If only comma, check if it's decimal separator or thousands
     // If it's at the end (like 565,00), it's decimal
     if (cleanPrice.match(/,\d{2}$/)) {
-      cleanPrice = cleanPrice.replace(',', '.')
+      // Last comma is the decimal separator; any earlier commas are thousands separators
+      const lastIdx = cleanPrice.lastIndexOf(',')
+      cleanPrice =
+        cleanPrice.slice(0, lastIdx).replace(/,/g, '') +
+        '.' +
+        cleanPrice.slice(lastIdx + 1)
     } else {
       // Otherwise it's thousands separator
       cleanPrice = cleanPrice.replace(/,/g, '')
