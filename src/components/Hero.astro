@@ -65,6 +65,7 @@ import { Image } from 'astro:assets'
           </a>
           <a
             href="#features"
+            id="hero_view_features"
             class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:border-slate-300 dark:hover:border-slate-500"
           >
             <span>View Features</span>
@@ -108,16 +109,17 @@ import { Image } from 'astro:assets'
 </header>
 
 <script>
-  import { track } from '@vercel/analytics'
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
 
-  const downloadBtn = document.querySelector('#hero_download')
-
-  downloadBtn?.addEventListener('click', () => {
-    track('click_download', {
-      location: 'hero',
-    })
-    window.posthog?.capture('click_download', {
-      location: 'hero',
-    })
+  document.querySelector('#hero_download')?.addEventListener('click', () => {
+    trackEvent('cta_click', { type: 'download', location: 'hero' })
   })
+
+  document
+    .querySelector('#hero_view_features')
+    ?.addEventListener('click', () => {
+      trackEvent('cta_click', { type: 'view_features', location: 'hero' })
+    })
+
+  trackSectionVisibility('header', 'hero')
 </script>

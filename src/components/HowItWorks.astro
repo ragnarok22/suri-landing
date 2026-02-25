@@ -117,7 +117,8 @@ import { Download } from 'lucide-react'
               >
             </div>
             <a
-              href="#download"
+              id="how-it-works-download"
+              href="https://github.com/ragnarok22/suri-landing/releases/download/v0.3.2-1/v0.3.2.1.apk"
               class="bg-emerald-600 dark:bg-emerald-700 p-6 rounded-2xl w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center shadow-lg shadow-emerald-500/30 hover:bg-emerald-500 dark:hover:bg-emerald-600 transition-colors group"
             >
               <Download className="w-8 h-8 mb-2 group-hover:animate-bounce" />
@@ -129,3 +130,18 @@ import { Download } from 'lucide-react'
     </div>
   </div>
 </section>
+
+<script>
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
+
+  trackSectionVisibility('#how-it-works', 'how_it_works')
+
+  document
+    .querySelector('#how-it-works-download')
+    ?.addEventListener('click', () => {
+      trackEvent('download_start', {
+        platform: 'android',
+        location: 'how_it_works',
+      })
+    })
+</script>

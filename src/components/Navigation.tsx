@@ -1,15 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { track } from '@vercel/analytics'
+import { trackEvent } from '@/lib/analytics'
 import ThemeToggle from './ThemeToggle'
-
-declare global {
-  interface Window {
-    posthog?: {
-      capture: (event: string, properties?: Record<string, string>) => void
-    }
-  }
-}
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -51,14 +43,7 @@ export default function Navigation() {
   }
 
   const handleDownloadClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    track('click_download', {
-      location: 'header',
-    })
-    if (window.posthog) {
-      window.posthog.capture('click_download', {
-        location: 'header',
-      })
-    }
+    trackEvent('cta_click', { type: 'download', location: 'header' })
     scrollToSection(e, 'download')
   }
 

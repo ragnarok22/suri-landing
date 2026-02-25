@@ -84,6 +84,7 @@ const faqs = [
         <p class="text-slate-600 dark:text-slate-400">
           Still have questions?{' '}
           <a
+            id="faq-contact-support"
             href="mailto:support@suriapp.sr"
             class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium underline underline-offset-2"
           >
@@ -94,6 +95,28 @@ const faqs = [
     </div>
   </div>
 </section>
+
+<script>
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
+
+  trackSectionVisibility('#faq', 'faq')
+
+  document.querySelectorAll('#faq details').forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if ((detail as HTMLDetailsElement).open) {
+        const question =
+          detail.querySelector('h3')?.textContent?.trim() ?? 'unknown'
+        trackEvent('faq_opened', { question })
+      }
+    })
+  })
+
+  document
+    .querySelector('#faq-contact-support')
+    ?.addEventListener('click', () => {
+      trackEvent('cta_click', { type: 'contact_support', location: 'faq' })
+    })
+</script>
 
 <style>
   details summary::-webkit-details-marker {

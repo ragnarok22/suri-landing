@@ -21,12 +21,13 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
-      <div
-        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700"
+      <a
+        href="https://github.com/ragnarok22/suri-landing/releases/download/v0.3.2-1/v0.3.2.1.apk"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-200 dark:hover:bg-emerald-900/60 transition-colors"
       >
         <DownloadIcon className="w-4 h-4" />
         <span>Ready to get started?</span>
-      </div>
+      </a>
 
       <h2
         class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
@@ -106,25 +107,15 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
 </section>
 
 <script>
-  import { track } from '@vercel/analytics'
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
 
-  const downloadBtn = document.querySelector('a#download-apk')
-  const downloadAppleBtn = document.querySelector('a#download-apple')
+  document.querySelector('a#download-apk')?.addEventListener('click', () => {
+    trackEvent('download_start', { platform: 'android', location: 'download' })
+  })
 
-  downloadBtn?.addEventListener('click', () => {
-    track('click_download_apk', {
-      location: 'download',
-    })
-    window.posthog?.capture('click_download_apk', {
-      location: 'download',
-    })
+  document.querySelector('a#download-apple')?.addEventListener('click', () => {
+    trackEvent('download_start', { platform: 'ios', location: 'download' })
   })
-  downloadAppleBtn?.addEventListener('click', () => {
-    track('click_download_apple', {
-      location: 'download',
-    })
-    window.posthog?.capture('click_download_apple', {
-      location: 'download',
-    })
-  })
+
+  trackSectionVisibility('#download', 'download')
 </script>
