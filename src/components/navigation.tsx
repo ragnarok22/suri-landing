@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from './theme-toggle'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
