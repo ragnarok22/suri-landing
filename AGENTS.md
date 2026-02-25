@@ -71,7 +71,23 @@ Output mode is `server` in `astro.config.mjs`. The Vercel adapter handles deploy
 
 ### Analytics
 
-PostHog is injected via `src/components/posthog.astro` in the base Layout. This component is excluded from both Prettier and ESLint.
+Dual tracking with **Vercel Analytics** and **PostHog** — every event is sent to both.
+
+- **Shared utility**: `src/lib/analytics.ts` provides `trackEvent()` and `trackSectionVisibility()`. Always use these instead of calling `track()` or `posthog.capture()` directly.
+- **PostHog** is injected via `src/components/posthog.astro` in the base Layout. This component is excluded from both Prettier and ESLint.
+- **Vercel Analytics** is enabled via the Vercel adapter in `astro.config.mjs`.
+- **`Window.posthog`** type is declared in `src/env.d.ts`.
+
+#### Event naming conventions
+
+- `cta_click` — navigational/engagement CTA clicks (props: `type`, `location`)
+- `download_start` — actual download/app store link clicks (props: `platform`, `location`)
+- `section_viewed` — scroll depth/funnel tracking via IntersectionObserver (props: `section`)
+- `faq_opened` — FAQ item expanded (props: `question`)
+
+#### Tracked components
+
+Hero, Features, HowItWorks, Download, FAQ, and Navigation all include analytics. When adding new sections or CTAs, use `trackEvent()` and `trackSectionVisibility()` from `@/lib/analytics`.
 
 ### SEO
 
