@@ -1,5 +1,7 @@
 # Suri Landing Page
 
+[![CI](https://github.com/ragnarok22/suri-landing/actions/workflows/ci.yml/badge.svg)](https://github.com/ragnarok22/suri-landing/actions/workflows/ci.yml)
+
 Official landing page for **Suri**, a mobile app designed to help users effortlessly manage their Telesur phone credit and mobile data plans in Suriname.
 
 [Live Site](https://suriapp.sr)
