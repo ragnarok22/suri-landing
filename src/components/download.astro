@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets'
+import { Download as DownloadIcon, Clock } from 'lucide-react'
+---
+
+<section
+  id="download"
+  class="py-24 bg-gradient-to-br from-slate-50 to-emerald-50/30 dark:from-slate-900 dark:to-emerald-950/30 relative overflow-hidden"
+>
+  <!-- Background decoration -->
+  <div
+    aria-hidden="true"
+    class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/20 dark:bg-emerald-900/10 rounded-full blur-3xl"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="absolute bottom-0 left-0 w-96 h-96 bg-yellow-200/20 dark:bg-yellow-900/10 rounded-full blur-3xl"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700"
+      >
+        <DownloadIcon className="w-4 h-4" />
+        <span>Ready to get started?</span>
+      </div>
+
+      <h2
+        class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
+      >
+        Download Suri Now
+      </h2>
+      <p
+        class="text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto"
+      >
+        Start managing your mobile credit and data plans with ease. Download
+        Suri today and stay connected.
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <a
+          href="https://github.com/ragnarok22/suri-landing/releases/download/v0.3.2-1/v0.3.2.1.apk"
+          id="download-apk"
+          class="transition-transform hover:scale-105 hover:drop-shadow-lg"
+        >
+          <Image
+            src="/apk-badge.svg"
+            alt="Download Android APK"
+            width={180}
+            height={60}
+          />
+        </a>
+
+        <div class="relative">
+          <div class="relative block opacity-60 grayscale pointer-events-none">
+            <Image
+              src="/google-play-badge.png"
+              alt="Google Play - Coming Soon"
+              width={180}
+              height={60}
+            />
+          </div>
+          <div
+            class="absolute -top-2 -right-2 flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-lg shadow-emerald-500/30 dark:shadow-emerald-500/20 animate-pulse-slow"
+          >
+            <Clock className="w-3 h-3" />
+            <span>Soon</span>
+          </div>
+        </div>
+
+        <a
+          href="https://apps.apple.com/app/suri-app/id6736572891"
+          id="download-apple"
+          class="transition-transform hover:scale-105 hover:drop-shadow-lg"
+        >
+          <Image
+            src="/app-store-badge.svg"
+            alt="Download on App Store"
+            width={180}
+            height={60}
+          />
+        </a>
+      </div>
+
+      <div
+        class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-slate-500 dark:text-slate-400"
+      >
+        <span class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+          No account required
+        </span>
+        <span class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+          100% secure
+        </span>
+        <span class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+          Always free
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
+
+  document.querySelector('a#download-apk')?.addEventListener('click', () => {
+    trackEvent('download_start', { platform: 'android', location: 'download' })
+  })
+
+  document.querySelector('a#download-apple')?.addEventListener('click', () => {
+    trackEvent('download_start', { platform: 'ios', location: 'download' })
+  })
+
+  trackSectionVisibility('#download', 'download')
+</script>

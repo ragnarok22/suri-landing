@@ -24,7 +24,7 @@ type TelesurOptionsType = {
   }
 }
 
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async () => {
   const prepaid: TelesurOptionsType = {
     call: {
       CHECK_BALANCE: '*132#',
@@ -48,7 +48,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     },
   } as const
 
-  const version = '0.3.2'
+  const version = '0.3.2.1'
 
   // Fetch data plans from Telesur website with 24h cache
   const data_plans = await scrapeTelesurPrepaid()
@@ -59,5 +59,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     data_plans,
   }
 
-  return new Response(JSON.stringify(telesur))
+  return new Response(JSON.stringify(telesur), {
+    headers: { 'Content-Type': 'application/json' },
+  })
 }

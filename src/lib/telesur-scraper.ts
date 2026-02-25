@@ -31,7 +31,7 @@ function isCacheValid(): boolean {
  * Parses data amount string and converts to MB
  * Examples: "150 MB" -> 150, "5 GB" -> 5120, "75 GB" -> 76800
  */
-function parseDataAmount(dataStr: string): number {
+export function parseDataAmount(dataStr: string): number {
   const match = dataStr.match(/(\d+)\s*(MB|GB)/i)
   if (!match) return 0
 
@@ -46,7 +46,7 @@ function parseDataAmount(dataStr: string): number {
  * Handles both comma and dot as decimal separators
  * Examples: "SRD 33.00" -> 33, "SRD 565,00" -> 565, "SRD 3,799.00" -> 3799
  */
-function parsePrice(priceStr: string): number {
+export function parsePrice(priceStr: string): number {
   // Remove everything except digits, commas, and dots
   let cleanPrice = priceStr.replace(/[^\d.,]/g, '')
 
@@ -58,7 +58,12 @@ function parsePrice(priceStr: string): number {
     // If only comma, check if it's decimal separator or thousands
     // If it's at the end (like 565,00), it's decimal
     if (cleanPrice.match(/,\d{2}$/)) {
-      cleanPrice = cleanPrice.replace(',', '.')
+      // Last comma is the decimal separator; any earlier commas are thousands separators
+      const lastIdx = cleanPrice.lastIndexOf(',')
+      cleanPrice =
+        cleanPrice.slice(0, lastIdx).replace(/,/g, '') +
+        '.' +
+        cleanPrice.slice(lastIdx + 1)
     } else {
       // Otherwise it's thousands separator
       cleanPrice = cleanPrice.replace(/,/g, '')
@@ -72,11 +77,14 @@ function parsePrice(priceStr: string): number {
  * Parses duration string (supports Dutch and English)
  * Examples: "12 uren" -> "12 hours", "1 dag" -> "1 day", "3 dagen" -> "3 days"
  */
-function parseDuration(durationStr: string): string {
+export function parseDuration(durationStr: string): string {
   const lower = durationStr.trim().toLowerCase()
 
   // Convert Dutch to English
   if (lower.includes('uren') || lower.includes('uur')) {
+    if (lower.startsWith('1 ')) {
+      return lower.replace(/uren|uur/, 'hour').trim()
+    }
     return lower.replace(/uren|uur/, 'hours').trim()
   }
   if (lower.includes('dag')) {
@@ -254,7 +262,7 @@ export async function scrapeTelesurPrepaid(): Promise<DataPlan[]> {
           duration: '30 days',
           data: 307200, // 300 GB
           price: 3799,
-          code: '50GB',
+          code: '300GB',
           features: ['5G', 'Rollover Pakket'],
         },
         {

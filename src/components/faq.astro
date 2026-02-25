@@ -1,0 +1,133 @@
+---
+import { ChevronDown } from 'lucide-react'
+
+const faqs = [
+  {
+    question: 'Is Suri free to use?',
+    answer:
+      'Yes! Suri is completely free to download and use. There are no hidden fees, subscriptions, or in-app purchases. We believe managing your mobile services should be accessible to everyone.',
+  },
+  {
+    question: 'Do I need to create an account?',
+    answer:
+      'No account needed! Suri works without registration. Simply download the app and start managing your mobile credit and data plans immediately. Your privacy is our priority.',
+  },
+  {
+    question: 'Which carriers does Suri support?',
+    answer:
+      'Suri currently supports Telesur, the leading mobile network in Suriname. We designed the app specifically for Telesur prepaid and postpaid customers to make managing services easier than traditional USSD codes.',
+  },
+  {
+    question: 'Is my data secure and private?',
+    answer:
+      'Absolutely. Suri does not collect or store your personal information. All transactions are encrypted and processed directly through your carrier. We never have access to your credit card details or sensitive data.',
+  },
+  {
+    question: 'What Android version do I need?',
+    answer:
+      'Suri is compatible with Android 6.0 (Marshmallow) and above. The app is optimized to work smoothly on both older and newer Android devices, ensuring accessibility for all users.',
+  },
+  {
+    question: 'Is there an iOS version available?',
+    answer:
+      'Yes! Suri is available on the App Store for iPhone users. Download it directly from the link above to manage your Telesur services on iOS.',
+  },
+  {
+    question: 'How do I check my balance?',
+    answer:
+      'Simply open the Suri app and your current balance will be displayed on the home screen. No need to remember USSD codes - Suri automatically retrieves your balance information.',
+  },
+  {
+    question: 'Can I buy data bundles through the app?',
+    answer:
+      'Yes! Suri lets you browse all available Telesur data plans, compare prices, and activate bundles directly from the app. You can also track your data usage and get notifications when running low.',
+  },
+]
+---
+
+<section
+  id="faq"
+  class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden"
+>
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+        >
+          Frequently Asked Questions
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300">
+          Everything you need to know about Suri
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          faqs.map((faq) => (
+            <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-200 hover:border-emerald-200 dark:hover:border-emerald-700">
+              <summary class="flex items-center justify-between cursor-pointer p-6 text-left select-none">
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white pr-8">
+                  {faq.question}
+                </h3>
+                <ChevronDown className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-transform duration-200 group-open:rotate-180 shrink-0" />
+              </summary>
+              <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                {faq.answer}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-slate-600 dark:text-slate-400">
+          Still have questions?{' '}
+          <a
+            id="faq-contact-support"
+            href="mailto:support@suriapp.sr"
+            class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium underline underline-offset-2"
+          >
+            Contact our support team
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
+
+  trackSectionVisibility('#faq', 'faq')
+
+  document.querySelectorAll('#faq details').forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if ((detail as HTMLDetailsElement).open) {
+        const question =
+          detail.querySelector('h3')?.textContent?.trim() ?? 'unknown'
+        trackEvent('faq_opened', { question })
+      }
+    })
+  })
+
+  document
+    .querySelector('#faq-contact-support')
+    ?.addEventListener('click', () => {
+      trackEvent('cta_click', { type: 'contact_support', location: 'faq' })
+    })
+</script>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] {
+    box-shadow: 0 4px 6px -1px rgb(226 232 240 / 0.5);
+  }
+
+  .dark details[open] {
+    box-shadow: 0 4px 6px -1px rgb(15 23 42 / 0.5);
+  }
+</style>

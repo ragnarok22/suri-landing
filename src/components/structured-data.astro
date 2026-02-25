@@ -1,0 +1,136 @@
+---
+// Structured data (JSON-LD) for SEO - Mobile Application + Organization Schema
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'MobileApplication',
+        name: 'Suri',
+        operatingSystem: 'iOS, Android',
+        applicationCategory: 'UtilitiesApplication',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.8',
+          ratingCount: '100',
+        },
+        description:
+          'Suri is a mobile app designed to help you effortlessly manage your Telesur phone credit and mobile data plans in Suriname, all without the need for an account.',
+        screenshot: [
+          'https://suriapp.sr/screenshot1.png',
+          'https://suriapp.sr/screenshot2.png',
+          'https://suriapp.sr/screenshot3.png',
+        ],
+        downloadUrl: 'https://apps.apple.com/app/suri-app/id6736572891',
+        image: 'https://suriapp.sr/suri-logo.jpg',
+        author: {
+          '@type': 'Person',
+          name: 'Reinier Hernández',
+          url: 'https://reinierhernandez.com',
+        },
+      },
+      {
+        '@type': 'Organization',
+        name: 'Suri App',
+        url: 'https://suriapp.sr',
+        logo: 'https://suriapp.sr/suri-logo.jpg',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: 'me@reinierhernandez.com',
+          contactType: 'Customer Support',
+        },
+        sameAs: [],
+      },
+      {
+        '@type': 'WebSite',
+        name: 'Suri App',
+        url: 'https://suriapp.sr',
+        description:
+          'Manage your Telesur mobile credit and data plans with ease',
+        publisher: {
+          '@type': 'Person',
+          name: 'Reinier Hernández',
+          url: 'https://reinierhernandez.com',
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Is Suri free to use?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! Suri is completely free to download and use. There are no hidden fees, subscriptions, or in-app purchases. We believe managing your mobile services should be accessible to everyone.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Do I need to create an account?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No account needed! Suri works without registration. Simply download the app and start managing your mobile credit and data plans immediately. Your privacy is our priority.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Which carriers does Suri support?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Suri currently supports Telesur, the leading mobile network in Suriname. We designed the app specifically for Telesur prepaid and postpaid customers to make managing services easier than traditional USSD codes.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is my data secure and private?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Absolutely. Suri does not collect or store your personal information. All transactions are encrypted and processed directly through your carrier. We never have access to your credit card details or sensitive data.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What Android version do I need?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Suri is compatible with Android 6.0 (Marshmallow) and above. The app is optimized to work smoothly on both older and newer Android devices, ensuring accessibility for all users.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is there an iOS version available?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! Suri is available on the App Store for iPhone users. Download it directly from the link above to manage your Telesur services on iOS.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How do I check my balance?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Simply open the Suri app and your current balance will be displayed on the home screen. No need to remember USSD codes - Suri automatically retrieves your balance information.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I buy data bundles through the app?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes! Suri lets you browse all available Telesur data plans, compare prices, and activate bundles directly from the app. You can also track your data usage and get notifications when running low.',
+            },
+          },
+        ],
+      },
+    ],
+  })}
+/>

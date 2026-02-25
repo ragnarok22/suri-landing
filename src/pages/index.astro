@@ -1,22 +1,24 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Header from '@/components/Header.astro'
-import Hero from '@/components/Hero.astro'
-import Features from '@/components/Features.astro'
-import HowItWorks from '@/components/HowItWorks.astro'
-import Screenshots from '@/components/Screenshots.astro'
-import Download from '@/components/Download.astro'
-import Footer from '@/components/Footer.astro'
+import Layout from '@/layouts/layout.astro'
+import Header from '@/components/header.astro'
+import Hero from '@/components/hero.astro'
+import Features from '@/components/features.astro'
+import Screenshots from '@/components/screenshots.astro'
+import HowItWorks from '@/components/how-it-works.astro'
+import Download from '@/components/download.astro'
+import FAQ from '@/components/faq.astro'
+import Footer from '@/components/footer.astro'
 ---
 
-<Layout title="Suri - Easily manage your mobile credit and data plans">
+<Layout
+  title="Suri - Manage Your Telesur Mobile Credit & Data Plans in Suriname"
+>
   <Header />
-  <main>
-    <Hero />
-    <Features />
-    <HowItWorks />
-    <Screenshots />
-    <Download />
-  </main>
+  <Hero />
+  <Features />
+  <Screenshots />
+  <HowItWorks />
+  <Download />
+  <FAQ />
   <Footer />
 </Layout>

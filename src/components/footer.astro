@@ -1,0 +1,55 @@
+---
+const currentYear = new Date().getFullYear()
+---
+
+<footer
+  id="footer"
+  class="bg-slate-50 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-sm"
+        >
+          S
+        </div>
+        <span class="text-xl font-bold text-slate-900 dark:text-white"
+          >Suri</span
+        >
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-500 dark:text-slate-400 text-center sm:text-left"
+      >
+        <a
+          href="/privacy"
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          >Privacy Policy</a
+        >
+        <a
+          href="/terms"
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          >Terms of Service</a
+        >
+      </div>
+
+      <div class="text-sm text-slate-400 dark:text-slate-500">
+        © {currentYear} Suri App. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { trackEvent, trackSectionVisibility } from '@/lib/analytics'
+
+  trackSectionVisibility('#footer', 'footer')
+
+  document.querySelectorAll('#footer a[href]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href') ?? ''
+      trackEvent('cta_click', { type: 'footer_link', location: 'footer', href })
+    })
+  })
+</script>

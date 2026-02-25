@@ -1,7 +1,7 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
+import Layout from '@/layouts/layout.astro'
+import Header from '@/components/header.astro'
+import Footer from '@/components/footer.astro'
 
 const lastUpdated = 'September 3, 2024'
 ---
@@ -13,11 +13,11 @@ const lastUpdated = 'September 3, 2024'
 >
   <Header />
   <section
-    class="min-h-screen bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+    class="min-h-screen bg-slate-50 text-slate-900 pt-32 dark:bg-slate-900 dark:text-slate-100"
   >
     <div class="container mx-auto p-6">
       <h1 class="text-3xl font-bold mb-4">Suri App Terms of Service</h1>
-      <p class="text-sm text-gray-500 dark:text-gray-400">
+      <p class="text-sm text-slate-500 dark:text-slate-400">
         Last Updated: {lastUpdated}
       </p>
 
