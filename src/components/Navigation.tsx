@@ -27,30 +27,30 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     setMobileMenuOpen(false)
 
-    // If we're not on the homepage, navigate there first
-    if (window.location.pathname !== '/') {
-      window.location.assign(`/#${id}`)
-      return
-    }
+    // If we're not on the homepage, let the href handle navigation
+    if (window.location.pathname !== '/') return
 
+    e.preventDefault()
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
-  const handleLogoClick = () => {
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (window.location.pathname === '/') {
+      e.preventDefault()
       window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else {
-      window.location.assign('/')
     }
   }
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     track('click_download', {
       location: 'header',
     })
@@ -59,7 +59,7 @@ export default function Navigation() {
         location: 'header',
       })
     }
-    scrollToSection('download')
+    scrollToSection(e, 'download')
   }
 
   return (
@@ -71,8 +71,9 @@ export default function Navigation() {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div
-          className="flex items-center gap-2 cursor-pointer"
+        <a
+          href="/"
+          className="flex items-center gap-2"
           onClick={handleLogoClick}
         >
           <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/30 relative overflow-hidden">
@@ -82,28 +83,31 @@ export default function Navigation() {
           <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
             Suri
           </span>
-        </div>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {['Features', 'How it Works', 'FAQ'].map((item) => (
-            <button
-              key={item}
-              onClick={() =>
-                scrollToSection(item.toLowerCase().replace(/\s/g, '-'))
-              }
-              className="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
-            >
-              {item}
-            </button>
-          ))}
+          {['Features', 'How it Works', 'FAQ'].map((item) => {
+            const id = item.toLowerCase().replace(/\s/g, '-')
+            return (
+              <a
+                key={item}
+                href={`/#${id}`}
+                onClick={(e) => scrollToSection(e, id)}
+                className="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
+              >
+                {item}
+              </a>
+            )
+          })}
           <ThemeToggle />
-          <button
+          <a
+            href="/#download"
             onClick={handleDownloadClick}
             className="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 transition-all hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0"
           >
             Download App
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -124,29 +128,32 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col p-6 gap-4">
-          {['Features', 'How it Works', 'FAQ'].map((item) => (
-            <button
-              key={item}
-              onClick={() =>
-                scrollToSection(item.toLowerCase().replace(/\s/g, '-'))
-              }
-              className="text-left text-lg font-medium text-slate-600 dark:text-slate-300"
-            >
-              {item}
-            </button>
-          ))}
+          {['Features', 'How it Works', 'FAQ'].map((item) => {
+            const id = item.toLowerCase().replace(/\s/g, '-')
+            return (
+              <a
+                key={item}
+                href={`/#${id}`}
+                onClick={(e) => scrollToSection(e, id)}
+                className="text-lg font-medium text-slate-600 dark:text-slate-300"
+              >
+                {item}
+              </a>
+            )
+          })}
           <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700">
             <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
               Theme
             </span>
             <ThemeToggle />
           </div>
-          <button
+          <a
+            href="/#download"
             onClick={handleDownloadClick}
-            className="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-500 transition-colors"
+            className="block w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-500 transition-colors text-center"
           >
             Download App
-          </button>
+          </a>
         </div>
       </div>
     </nav>
