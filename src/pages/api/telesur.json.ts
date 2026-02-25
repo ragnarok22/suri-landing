@@ -48,7 +48,7 @@ export const GET: APIRoute = async () => {
     },
   } as const
 
-  const version = '0.3.2'
+  const version = '0.3.2.1'
 
   // Fetch data plans from Telesur website with 24h cache
   const data_plans = await scrapeTelesurPrepaid()
