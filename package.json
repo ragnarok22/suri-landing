@@ -11,7 +11,9 @@
     "format": "prettier --write .",
     "lint": "eslint . --report-unused-disable-directives",
     "lint:fix": "eslint . --fix --report-unused-disable-directives",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -41,7 +43,8 @@
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
     "tailwindcss": "^4.2.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@10.30.2+sha512.36cdc707e7b7940a988c9c1ecf88d084f8514b5c3f085f53a2e244c2921d3b2545bc20dd4ebe1fc245feec463bb298aecea7a63ed1f7680b877dc6379d8d0cb4"
 }

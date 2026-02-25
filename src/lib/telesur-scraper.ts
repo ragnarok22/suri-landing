@@ -257,7 +257,7 @@ export async function scrapeTelesurPrepaid(): Promise<DataPlan[]> {
           duration: '30 days',
           data: 307200, // 300 GB
           price: 3799,
-          code: '50GB',
+          code: '300GB',
           features: ['5G', 'Rollover Pakket'],
         },
         {
