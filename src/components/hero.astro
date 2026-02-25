@@ -3,7 +3,10 @@ import { Download, ChevronRight, Check } from 'lucide-react'
 import { Image } from 'astro:assets'
 ---
 
-<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+<header
+  id="hero"
+  class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden"
+>
   <!-- Abstract Background Blobs -->
   <div
     aria-hidden="true"
@@ -121,5 +124,5 @@ import { Image } from 'astro:assets'
       trackEvent('cta_click', { type: 'view_features', location: 'hero' })
     })
 
-  trackSectionVisibility('header', 'hero')
+  trackSectionVisibility('#hero', 'hero')
 </script>
