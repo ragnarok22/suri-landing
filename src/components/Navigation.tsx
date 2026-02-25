@@ -108,6 +108,8 @@ export default function Navigation() {
         <button
           className="md:hidden p-2 text-slate-600 dark:text-slate-300"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-expanded={mobileMenuOpen}
+          aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>

@@ -11,28 +11,35 @@ import { Image } from 'astro:assets'
     >
       App Screenshots
     </h2>
-    <div class="flex justify-center space-x-4 lg:space-x-10 overflow-hidden">
+    <div
+      class="flex justify-start md:justify-center gap-4 lg:gap-10 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-4 md:px-0 -mx-4 md:mx-0"
+    >
       <Image
         src="/screenshot1.png"
         alt="Suri app home screen showing balance check and mobile credit top-up options for Telesur"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover"
+        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
         width={200}
         height={400}
       />
       <Image
         src="/screenshot2.png"
         alt="Suri app data plans interface displaying available Telesur prepaid data packages"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover"
+        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
         width={200}
         height={400}
       />
       <Image
         src="/screenshot3.png"
         alt="Suri app payment confirmation screen for mobile credit and data plan activation"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover"
+        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
         width={200}
         height={400}
       />
+    </div>
+    <div class="flex justify-center gap-2 mt-4 md:hidden">
+      <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+      <div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+      <div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
     </div>
   </div>
 </section>

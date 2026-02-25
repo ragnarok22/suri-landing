@@ -35,7 +35,10 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
     <meta name="theme-color" content="#10b981" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/suri-logo.jpg" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="preconnect" href="https://apps.apple.com" />
+    <link rel="preconnect" href="https://github.com" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph / Facebook -->
@@ -44,6 +47,9 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={siteName} />
 
     <!-- Twitter -->
@@ -75,6 +81,12 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
   <body
     class="text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-900 min-h-screen selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900 dark:selection:text-emerald-100 overflow-x-hidden transition-colors duration-200"
   >
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-lg focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
     <slot />
   </body>
 </html>

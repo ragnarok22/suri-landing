@@ -59,5 +59,7 @@ export const GET: APIRoute = async () => {
     data_plans,
   }
 
-  return new Response(JSON.stringify(telesur))
+  return new Response(JSON.stringify(telesur), {
+    headers: { 'Content-Type': 'application/json' },
+  })
 }

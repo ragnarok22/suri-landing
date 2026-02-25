@@ -9,10 +9,12 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
 >
   <!-- Background decoration -->
   <div
+    aria-hidden="true"
     class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/20 dark:bg-emerald-900/10 rounded-full blur-3xl"
   >
   </div>
   <div
+    aria-hidden="true"
     class="absolute bottom-0 left-0 w-96 h-96 bg-yellow-200/20 dark:bg-yellow-900/10 rounded-full blur-3xl"
   >
   </div>
@@ -53,17 +55,14 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
         </a>
 
         <div class="relative">
-          <a
-            href="#"
-            class="relative block opacity-60 transition-opacity hover:opacity-70 cursor-not-allowed grayscale"
-          >
+          <div class="relative block opacity-60 grayscale pointer-events-none">
             <Image
               src="/google-play-badge.png"
               alt="Google Play - Coming Soon"
               width={180}
               height={60}
             />
-          </a>
+          </div>
           <div
             class="absolute -top-2 -right-2 flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-700 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-lg shadow-emerald-500/30 dark:shadow-emerald-500/20 animate-pulse-slow"
           >
@@ -116,7 +115,7 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
     track('click_download_apk', {
       location: 'download',
     })
-    window.posthog.capture('click_download_apk', {
+    window.posthog?.capture('click_download_apk', {
       location: 'download',
     })
   })
@@ -124,7 +123,7 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
     track('click_download_apple', {
       location: 'download',
     })
-    window.posthog.capture('click_download_apple', {
+    window.posthog?.capture('click_download_apple', {
       location: 'download',
     })
   })

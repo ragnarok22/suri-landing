@@ -6,18 +6,20 @@ import { Image } from 'astro:assets'
 <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
   <!-- Abstract Background Blobs -->
   <div
+    aria-hidden="true"
     class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-emerald-100/40 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse-slow"
   >
   </div>
   <div
+    aria-hidden="true"
     class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-yellow-100/40 dark:bg-yellow-900/20 rounded-full blur-3xl opacity-50 -z-10"
   >
   </div>
 
   <div class="container mx-auto px-6">
-    <div class="flex flex-col lg:flex-row items-center gap-16">
+    <div class="flex flex-col md:flex-row items-center gap-16">
       <!-- Text Content -->
-      <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
+      <div class="md:w-1/2 space-y-8 text-center md:text-left">
         <div
           class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-full text-sm font-semibold mb-2 border border-emerald-100 dark:border-emerald-700"
         >
@@ -44,14 +46,14 @@ import { Image } from 'astro:assets'
         </h1>
 
         <p
-          class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+          class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto md:mx-0 leading-relaxed"
         >
           Check your balance, top up instantly, and manage data plans with the
           app built for Suriname. Fast, secure, and easy.
         </p>
 
         <div
-          class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+          class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
         >
           <a
             href="#download"
@@ -71,7 +73,7 @@ import { Image } from 'astro:assets'
         </div>
 
         <div
-          class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-slate-400 text-sm font-medium"
+          class="pt-4 flex items-center justify-center md:justify-start gap-6 text-slate-400 text-sm font-medium"
         >
           <span class="flex items-center gap-2"
             ><Check className="w-4 h-4 text-emerald-500" /> Supports Telesur</span
@@ -83,7 +85,7 @@ import { Image } from 'astro:assets'
       </div>
 
       <!-- Hero Visual / App Screenshot -->
-      <div class="lg:w-1/2 flex justify-center relative">
+      <div class="hidden md:flex md:w-1/2 justify-center relative">
         <!-- Decorative elements behind phone -->
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[700px] bg-gradient-to-tr from-emerald-500/20 to-yellow-400/20 dark:from-emerald-500/10 dark:to-yellow-400/10 rounded-[3rem] -rotate-6 blur-xl"
@@ -114,7 +116,7 @@ import { Image } from 'astro:assets'
     track('click_download', {
       location: 'hero',
     })
-    window.posthog.capture('click_download', {
+    window.posthog?.capture('click_download', {
       location: 'hero',
     })
   })
