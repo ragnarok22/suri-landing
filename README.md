@@ -17,6 +17,7 @@ Suri is a mobile application that simplifies managing Telesur prepaid services w
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com) (via Vite plugin)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: Vercel Web Analytics + PostHog
+- **Testing**: [Vitest](https://vitest.dev)
 - **Package Manager**: pnpm
 
 ## Getting Started
@@ -50,13 +51,15 @@ pnpm build
 
 ### Other Commands
 
-| Command          | Description                          |
-| ---------------- | ------------------------------------ |
-| `pnpm preview`   | Preview the production build locally |
-| `pnpm format`    | Format all files with Prettier       |
-| `pnpm lint`      | Run ESLint                           |
-| `pnpm lint:fix`  | Run ESLint with auto-fix             |
-| `pnpm typecheck` | Run Astro type checking              |
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `pnpm preview`    | Preview the production build locally |
+| `pnpm format`     | Format all files with Prettier       |
+| `pnpm lint`       | Run ESLint                           |
+| `pnpm lint:fix`   | Run ESLint with auto-fix             |
+| `pnpm typecheck`  | Run Astro type checking              |
+| `pnpm test`       | Run tests with Vitest                |
+| `pnpm test:watch` | Run tests in watch mode              |
 
 ## Project Structure
 
@@ -86,7 +89,9 @@ src/
 │   └── api/
 │       └── telesur.json.ts  # API endpoint for the mobile app
 ├── lib/
-│   └── utils.ts             # Utility functions (cn helper)
+│   ├── utils.ts             # Utility functions (cn helper)
+│   ├── telesur-scraper.ts   # Telesur data plan scraper with caching
+│   └── telesur-scraper.test.ts # Unit tests for scraper parsers
 └── styles/
     └── global.css           # Global styles
 ```

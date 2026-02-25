@@ -16,6 +16,8 @@ Live site: https://suriapp.sr
 - `pnpm lint:fix` — run ESLint with auto-fix
 - `pnpm format` — format all files with Prettier
 - `pnpm typecheck` — run Astro type checking
+- `pnpm test` — run tests with Vitest
+- `pnpm test:watch` — run tests in watch mode
 
 ## Code Conventions
 
