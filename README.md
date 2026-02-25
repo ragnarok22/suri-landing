@@ -2,7 +2,9 @@
 
 Official landing page for **Suri**, a mobile app designed to help users effortlessly manage their Telesur phone credit and mobile data plans in Suriname.
 
-🌐 **Live Site**: [suriapp.sr](https://suriapp.sr)
+[Live Site](https://suriapp.sr)
+
+![Suri OG](public/og.png)
 
 ## About
 
@@ -10,19 +12,19 @@ Suri is a mobile application that simplifies managing Telesur prepaid services w
 
 ## Tech Stack
 
-- **Framework**: [Astro 5](https://astro.build) (Server-Side Rendering)
-- **UI Components**: Astro + React
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com)
-- **Deployment**: [Vercel](https://vercel.com) (SSR with edge functions)
+- **Framework**: [Astro 5](https://astro.build) with SSR
+- **UI Components**: Astro (.astro) + React (.tsx)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com) (via Vite plugin)
+- **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: Vercel Web Analytics + PostHog
-- **Package Manager**: pnpm 10.18.2
+- **Package Manager**: pnpm
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- pnpm 10.18.2 (enforced by packageManager field)
+- pnpm (see `packageManager` in package.json for the exact version)
 
 ### Installation
 
@@ -40,57 +42,58 @@ pnpm dev
 
 ### Building
 
-Build the production site with type checking:
+Type-check and build for production:
 
 ```bash
 pnpm build
 ```
 
-### Preview
+### Other Commands
 
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
-
-### Code Formatting
-
-Format all files with Prettier:
-
-```bash
-pnpm format
-```
+| Command          | Description                          |
+| ---------------- | ------------------------------------ |
+| `pnpm preview`   | Preview the production build locally |
+| `pnpm format`    | Format all files with Prettier       |
+| `pnpm lint`      | Run ESLint                           |
+| `pnpm lint:fix`  | Run ESLint with auto-fix             |
+| `pnpm typecheck` | Run Astro type checking              |
 
 ## Project Structure
 
 ```
 src/
-├── components/          # UI components
-│   ├── ui/             # Reusable UI elements
-│   ├── Hero.astro
-│   ├── Features.astro
-│   ├── HowItWorks.astro
-│   ├── Screenshots.astro
-│   ├── Download.astro
-│   └── posthog.astro   # Analytics (excluded from Prettier)
+├── components/
+│   ├── ui/                  # Reusable UI elements (Button variants)
+│   ├── Header.astro         # Site header with navigation
+│   ├── Hero.astro           # Hero section
+│   ├── Features.astro       # Feature highlights
+│   ├── Screenshots.astro    # App screenshot gallery
+│   ├── HowItWorks.astro     # Step-by-step usage guide
+│   ├── Download.astro       # App store download links
+│   ├── FAQ.astro            # Frequently asked questions
+│   ├── Footer.astro         # Site footer
+│   ├── Card.astro           # Reusable card component
+│   ├── StructuredData.astro # JSON-LD structured data for SEO
+│   ├── Navigation.tsx       # React navigation component
+│   ├── ThemeToggle.tsx      # Dark/light mode toggle
+│   └── posthog.astro        # PostHog analytics
 ├── layouts/
-│   └── Layout.astro    # Base layout with SEO
+│   └── Layout.astro         # Base layout with SEO meta tags
 ├── pages/
-│   ├── index.astro     # Homepage
-│   ├── privacy.astro   # Privacy policy
-│   ├── terms.astro     # Terms of service
+│   ├── index.astro          # Homepage
+│   ├── privacy.astro        # Privacy policy
+│   ├── terms.astro          # Terms of service
 │   └── api/
-│       └── telesur.json.ts  # API endpoint for mobile app
+│       └── telesur.json.ts  # API endpoint for the mobile app
 ├── lib/
-│   └── utils.ts        # Utility functions
+│   └── utils.ts             # Utility functions (cn helper)
 └── styles/
-    └── global.css      # Global styles
+    └── global.css           # Global styles
 ```
 
 ## API Endpoint
 
-The `/api/telesur.json` endpoint provides current Telesur service data consumed by the mobile app:
+The `/api/telesur.json` endpoint provides current Telesur service data consumed by the Suri mobile app:
 
 - Prepaid USSD codes (balance check, recharge, etc.)
 - SMS codes for data plans and P2P transfers
@@ -99,11 +102,11 @@ The `/api/telesur.json` endpoint provides current Telesur service data consumed 
 
 ## Deployment
 
-Deployed to Vercel with automatic deployments from the main branch. The site uses server-side rendering for optimal performance and SEO.
+Deployed to Vercel with automatic deployments from the main branch. The site uses server-side rendering via the `@astrojs/vercel` adapter.
 
-## Development Notes
+Additional production features:
 
-- Uses path alias `@/*` for imports (e.g., `@/components/Header.astro`)
-- Prettier configured for Astro files with single quotes and no semicolons
-- `posthog.astro` component excluded from Prettier formatting
-- TypeScript strict mode enabled
+- **Sitemap** generation via `@astrojs/sitemap`
+- **PWA manifest** at `/manifest.json`
+- **Structured data** (JSON-LD) for search engines
+- **OG image** for social sharing
