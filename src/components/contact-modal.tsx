@@ -39,7 +39,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     return () => dialog.removeEventListener('close', handleClose)
   }, [onClose])
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('sending')
 
