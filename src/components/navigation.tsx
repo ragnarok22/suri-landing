@@ -3,6 +3,9 @@ import { Menu, X } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 import ThemeToggle from './theme-toggle'
 
+const NAV_ITEMS = ['Features', 'How it Works', 'FAQ'] as const
+const WHITESPACE_RE = /\s/g
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -15,7 +18,7 @@ export default function Navigation() {
     // Check initial scroll position on mount
     handleScroll()
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -73,8 +76,8 @@ export default function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {['Features', 'How it Works', 'FAQ'].map((item) => {
-            const id = item.toLowerCase().replace(/\s/g, '-')
+          {NAV_ITEMS.map((item) => {
+            const id = item.toLowerCase().replace(WHITESPACE_RE, '-')
             return (
               <a
                 key={item}
@@ -114,8 +117,8 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col p-6 gap-4">
-          {['Features', 'How it Works', 'FAQ'].map((item) => {
-            const id = item.toLowerCase().replace(/\s/g, '-')
+          {NAV_ITEMS.map((item) => {
+            const id = item.toLowerCase().replace(WHITESPACE_RE, '-')
             return (
               <a
                 key={item}
