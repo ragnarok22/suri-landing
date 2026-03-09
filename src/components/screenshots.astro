@@ -1,62 +1,114 @@
 ---
+import { Smartphone } from 'lucide-react'
+
 const screenshots = [
   {
-    src: '/screenshot1.png',
-    darkSrc: '/screenshot1-dark.png',
+    src: '/screenshot1.webp',
+    darkSrc: '/screenshot1-dark.webp',
     alt: 'Suri app home screen showing balance check and mobile credit top-up options for Telesur',
+    label: 'Home Dashboard',
   },
   {
-    src: '/screenshot2.png',
-    darkSrc: '/screenshot2-dark.png',
+    src: '/screenshot2.webp',
+    darkSrc: '/screenshot2-dark.webp',
     alt: 'Suri app data plans interface displaying available Telesur prepaid data packages',
+    label: 'Recharge Balance',
   },
   {
-    src: '/screenshot3.png',
-    darkSrc: '/screenshot3-dark.png',
+    src: '/screenshot3.webp',
+    darkSrc: '/screenshot3-dark.webp',
     alt: 'Suri app payment confirmation screen for mobile credit and data plan activation',
+    label: 'Quick Activation',
   },
   {
-    src: '/screenshot4.png',
-    darkSrc: '/screenshot4-dark.png',
+    src: '/screenshot4.webp',
+    darkSrc: '/screenshot4-dark.webp',
     alt: 'Suri app usage overview screen showing data consumption and credit history',
+    label: 'Transfer Balance',
   },
 ]
 ---
 
 <section
   id="screenshots"
-  class="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-slate-100 dark:bg-slate-800"
+  class="py-24 bg-slate-100 dark:bg-slate-800 relative overflow-hidden"
 >
-  <div class="container px-4 md:px-6">
-    <h2
-      class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-slate-100 text-balance"
-    >
-      App Screenshots
-    </h2>
+  <!-- Background decoration -->
+  <div
+    aria-hidden="true"
+    class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/30 dark:bg-emerald-900/15 rounded-full blur-3xl"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="absolute bottom-0 left-0 w-80 h-80 bg-yellow-200/20 dark:bg-yellow-900/10 rounded-full blur-3xl"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Section header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700"
+      >
+        <Smartphone className="w-4 h-4" aria-hidden="true" />
+        <span>See it in action</span>
+      </div>
+
+      <h2
+        class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-balance"
+      >
+        Designed for Simplicity
+      </h2>
+      <p class="text-slate-600 dark:text-slate-300">
+        A clean, intuitive interface that makes managing your mobile services
+        effortless.
+      </p>
+    </div>
+
+    <!-- Screenshots carousel -->
     <div
-      class="flex justify-start md:justify-center gap-4 lg:gap-10 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-4 md:px-0 -mx-4 md:mx-0"
+      class="flex justify-start lg:justify-center gap-6 lg:gap-10 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-4 md:px-0 -mx-4 md:mx-0 scrollbar-hide"
     >
       {
-        screenshots.map((s) => (
-          <picture class="shrink-0 snap-center">
-            <source
-              srcset={s.darkSrc}
-              media="(prefers-color-scheme: dark)"
-              width="200"
-              height="400"
-            />
-            <img
-              src={s.src}
-              alt={s.alt}
-              width="200"
-              height="400"
-              loading="lazy"
-              class="rounded-lg object-cover"
-            />
-          </picture>
+        screenshots.map((s, i) => (
+          <div
+            class:list={[
+              'shrink-0 snap-center group',
+              i % 2 === 1 && 'lg:translate-y-6',
+            ]}
+          >
+            <div class="relative rounded-[2rem] bg-white dark:bg-slate-900 p-2 shadow-lg shadow-slate-900/10 dark:shadow-black/30 transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5">
+              <!-- Notch -->
+              <div
+                aria-hidden="true"
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-white dark:bg-slate-900 rounded-b-2xl z-10"
+              />
+              <picture>
+                <source
+                  srcset={s.darkSrc}
+                  media="(prefers-color-scheme: dark)"
+                  width="240"
+                  height="520"
+                />
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  width="240"
+                  height="520"
+                  loading="lazy"
+                  class="rounded-[1.5rem] object-cover w-[220px] md:w-[240px]"
+                />
+              </picture>
+            </div>
+            <p class="text-center text-sm font-medium text-slate-600 dark:text-slate-400 mt-4 transition-colors duration-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+              {s.label}
+            </p>
+          </div>
         ))
       }
     </div>
+
     <p
       class="text-center text-sm text-slate-400 dark:text-slate-500 mt-4 md:hidden"
     >
@@ -70,3 +122,14 @@ const screenshots = [
 
   trackSectionVisibility('#screenshots', 'screenshots')
 </script>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
