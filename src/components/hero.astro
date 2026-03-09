@@ -69,10 +69,10 @@ import { Image } from 'astro:assets'
           <a
             href="#features"
             id="hero_view_features"
-            class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:border-slate-300 dark:hover:border-slate-500"
+            class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 transition-[background-color,border-color] hover:border-slate-300 dark:hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
           >
             <span>View Features</span>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </div>
 
@@ -80,10 +80,10 @@ import { Image } from 'astro:assets'
           class="pt-4 flex items-center justify-center md:justify-start gap-6 text-slate-400 text-sm font-medium"
         >
           <span class="flex items-center gap-2"
-            ><Check className="w-4 h-4 text-emerald-500" /> Supports Telesur</span
+            ><Check className="w-4 h-4 text-emerald-500" aria-hidden="true" /> Supports Telesur</span
           >
           <span class="flex items-center gap-2"
-            ><Check className="w-4 h-4 text-emerald-500" /> Data Management</span
+            ><Check className="w-4 h-4 text-emerald-500" aria-hidden="true" /> Data Management</span
           >
         </div>
       </div>
@@ -103,6 +103,7 @@ import { Image } from 'astro:assets'
             alt="Suri App Screenshot"
             width={300}
             height={650}
+            loading="eager"
             class="relative rounded-[2.5rem] shadow-2xl"
           />
         </div>

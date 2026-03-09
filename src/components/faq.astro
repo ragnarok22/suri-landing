@@ -66,12 +66,12 @@ const faqs = [
       <div class="space-y-4">
         {
           faqs.map((faq) => (
-            <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-200 hover:border-emerald-200 dark:hover:border-emerald-700">
-              <summary class="flex items-center justify-between cursor-pointer p-6 text-left select-none">
+            <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-emerald-200 dark:hover:border-emerald-700">
+              <summary class="flex items-center justify-between cursor-pointer p-6 text-left select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-inset rounded-xl">
                 <h3 class="text-lg font-semibold text-slate-900 dark:text-white pr-8">
                   {faq.question}
                 </h3>
-                <ChevronDown className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-transform duration-200 group-open:rotate-180 shrink-0" />
+                <ChevronDown className="w-5 h-5 text-slate-500 dark:text-slate-400 transition-transform duration-200 group-open:rotate-180 shrink-0" aria-hidden="true" />
               </summary>
               <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
                 {faq.answer}
