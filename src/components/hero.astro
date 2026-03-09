@@ -1,6 +1,5 @@
 ---
 import { Download, ChevronRight, Check } from 'lucide-react'
-import { Image } from 'astro:assets'
 ---
 
 <header
@@ -103,14 +102,21 @@ import { Image } from 'astro:assets'
 
         <!-- Phone Screenshot -->
         <div class="relative animate-float">
-          <Image
-            src="/screenshot1.png"
-            alt="Suri App Screenshot"
-            width={300}
-            height={650}
-            loading="eager"
-            class="relative rounded-[2.5rem] shadow-2xl"
-          />
+          <picture>
+            <source
+              srcset="/screenshot1-dark.webp"
+              media="(prefers-color-scheme: dark)"
+              width="300"
+              height="650"
+            />
+            <img
+              src="/screenshot1.webp"
+              alt="Suri App Screenshot"
+              width="300"
+              height="650"
+              class="relative rounded-[2.5rem] shadow-2xl"
+            />
+          </picture>
         </div>
       </div>
     </div>
