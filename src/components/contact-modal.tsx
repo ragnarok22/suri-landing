@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useActionState } from 'react'
 import { X } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 
@@ -7,17 +7,39 @@ type ContactModalProps = {
   onClose: () => void
 }
 
+type FormState = { status: 'idle' | 'sent' | 'error'; subject?: string }
+
+async function submitContact(
+  _prev: FormState,
+  formData: FormData
+): Promise<FormState> {
+  const name = formData.get('name') as string
+  const email = formData.get('email') as string
+  const subject = formData.get('subject') as string
+  const message = formData.get('message') as string
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message }),
+    })
+
+    if (!res.ok) throw new Error()
+
+    trackEvent('contact_form_submitted', { subject })
+    return { status: 'sent', subject }
+  } catch {
+    return { status: 'error' }
+  }
+}
+
 export default function ContactModal({ open, onClose }: ContactModalProps) {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const [state, action, isPending] = useActionState(submitContact, {
+    status: 'idle',
   })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
-    'idle'
-  )
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -39,32 +61,11 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     return () => dialog.removeEventListener('close', handleClose)
   }, [onClose])
 
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus('sending')
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-
-      if (!res.ok) throw new Error()
-
-      setStatus('sent')
-      trackEvent('contact_form_submitted', { subject: form.subject })
-      setForm({ name: '', email: '', subject: '', message: '' })
-    } catch {
-      setStatus('error')
+  useEffect(() => {
+    if (state.status === 'sent') {
+      formRef.current?.reset()
     }
-  }
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  }, [state.status])
 
   return (
     <dialog
@@ -84,7 +85,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
         </button>
       </div>
 
-      {status === 'sent' ? (
+      {state.status === 'sent' ? (
         <div className="p-6 text-center">
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
             <svg
@@ -115,7 +116,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4 p-6">
+        <form ref={formRef} action={action} className="space-y-4 p-6">
           <div>
             <label
               htmlFor="contact-name"
@@ -128,8 +129,6 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               name="name"
               type="text"
               required
-              value={form.name}
-              onChange={handleChange}
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
           </div>
@@ -145,8 +144,6 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               name="email"
               type="email"
               required
-              value={form.email}
-              onChange={handleChange}
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
           </div>
@@ -162,8 +159,6 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               name="subject"
               type="text"
               required
-              value={form.subject}
-              onChange={handleChange}
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
           </div>
@@ -179,13 +174,11 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               name="message"
               required
               rows={4}
-              value={form.message}
-              onChange={handleChange}
               className="w-full resize-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
           </div>
 
-          {status === 'error' && (
+          {state.status === 'error' && (
             <p className="text-sm text-red-600 dark:text-red-400">
               Something went wrong. Please try again.
             </p>
@@ -193,10 +186,10 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
           <button
             type="submit"
-            disabled={status === 'sending'}
+            disabled={isPending}
             className="w-full rounded-lg bg-emerald-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {status === 'sending' ? 'Sending...' : 'Send Message'}
+            {isPending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       )}
