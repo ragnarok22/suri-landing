@@ -60,7 +60,7 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
     <meta name="twitter:image" content={ogImage} />
 
     <script is:inline>
-      ;(function () {
+      function applyTheme() {
         const stored = localStorage.getItem('theme')
         const prefersDark = window.matchMedia(
           '(prefers-color-scheme: dark)'
@@ -72,8 +72,15 @@ const siteName = 'Suri App - Manage Your Telesur Mobile Plans with Ease'
           document
             .querySelector('meta[name="theme-color"]')
             .setAttribute('content', '#0f172a')
+        } else {
+          document.documentElement.classList.remove('dark')
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', '#10b981')
         }
-      })()
+      }
+      applyTheme()
+      document.addEventListener('astro:after-swap', applyTheme)
     </script>
 
     <PostHog />
