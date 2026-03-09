@@ -78,7 +78,7 @@ const screenshots = [
               i % 2 === 1 && 'lg:translate-y-6',
             ]}
           >
-            <div class="relative rounded-[2rem] bg-white dark:bg-slate-900 p-2 shadow-lg shadow-slate-900/10 dark:shadow-black/30 transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5">
+            <div class="screenshot-card relative rounded-[2rem] bg-white dark:bg-slate-900 p-2 shadow-lg shadow-slate-900/10 dark:shadow-black/30 ring-1 ring-slate-200/60 dark:ring-slate-700/60">
               <div
                 aria-hidden="true"
                 class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-white dark:bg-slate-900 rounded-b-2xl z-10"
@@ -96,7 +96,7 @@ const screenshots = [
                   width="240"
                   height="520"
                   loading="lazy"
-                  class="rounded-[1.5rem] object-cover w-[220px] md:w-[240px]"
+                  class="screenshot-img rounded-[1.5rem] object-cover w-[220px] md:w-[240px]"
                 />
               </picture>
             </div>
@@ -130,5 +130,36 @@ const screenshots = [
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .screenshot-card {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      ring-color 0.35s ease;
+  }
+
+  .group:hover .screenshot-card {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow:
+      0 20px 40px -12px rgb(16 185 129 / 0.15),
+      0 8px 16px -8px rgb(0 0 0 / 0.1);
+    ring-color: rgb(16 185 129 / 0.3);
+  }
+
+  :global(.dark) .group:hover .screenshot-card {
+    box-shadow:
+      0 20px 40px -12px rgb(16 185 129 / 0.1),
+      0 8px 16px -8px rgb(0 0 0 / 0.3);
+  }
+
+  .screenshot-img {
+    transition:
+      filter 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .screenshot-img {
+    filter: brightness(1.04);
   }
 </style>
