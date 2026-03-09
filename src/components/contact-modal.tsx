@@ -9,6 +9,22 @@ type ContactModalProps = {
 
 type FormState = { status: 'idle' | 'sent' | 'error'; subject?: string }
 
+const checkmarkIcon = (
+  <svg
+    className="h-6 w-6 text-emerald-600 dark:text-emerald-400"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.5 12.75l6 6 9-13.5"
+    />
+  </svg>
+)
+
 async function submitContact(
   _prev: FormState,
   formData: FormData
@@ -88,19 +104,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
       {state.status === 'sent' ? (
         <div className="p-6 text-center">
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-            <svg
-              className="h-6 w-6 text-emerald-600 dark:text-emerald-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-              />
-            </svg>
+            {checkmarkIcon}
           </div>
           <p className="text-lg font-semibold text-slate-900 dark:text-white">
             Message sent!

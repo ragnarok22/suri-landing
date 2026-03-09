@@ -102,7 +102,7 @@ export default function Navigation() {
         {/* Mobile Menu Toggle */}
         <button
           className="md:hidden p-2 text-slate-600 dark:text-slate-300"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle menu"
         >
