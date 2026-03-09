@@ -52,7 +52,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-[background-color,backdrop-filter,box-shadow,padding] duration-300 ${
         isScrolled
           ? 'bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-sm py-4'
           : 'bg-transparent py-6'
@@ -67,6 +67,8 @@ export default function Navigation() {
           <img
             src="/suri-logo.jpg"
             alt="Suri logo"
+            width={40}
+            height={40}
             className="w-10 h-10 rounded-xl shadow-lg shadow-emerald-500/30"
           />
           <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -83,7 +85,7 @@ export default function Navigation() {
                 key={item}
                 href={`/#${id}`}
                 onClick={(e) => scrollToSection(e, id)}
-                className="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
+                className="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
               >
                 {item}
               </a>
@@ -93,7 +95,7 @@ export default function Navigation() {
           <a
             href="/#download"
             onClick={handleDownloadClick}
-            className="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 transition-all hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0"
+            className="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 transition-[background-color,box-shadow,transform] hover:shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
           >
             Download App
           </a>
@@ -101,18 +103,22 @@ export default function Navigation() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-slate-600 dark:text-slate-300"
+          className="md:hidden p-2 text-slate-600 dark:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? (
+            <X aria-hidden={true} />
+          ) : (
+            <Menu aria-hidden={true} />
+          )}
         </button>
       </div>
 
       {/* Mobile Nav Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 shadow-xl transition-all duration-300 overflow-hidden ${
+        className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 shadow-xl transition-[max-height,opacity] duration-300 overflow-hidden ${
           mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -124,7 +130,7 @@ export default function Navigation() {
                 key={item}
                 href={`/#${id}`}
                 onClick={(e) => scrollToSection(e, id)}
-                className="text-lg font-medium text-slate-600 dark:text-slate-300"
+                className="text-lg font-medium text-slate-600 dark:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
               >
                 {item}
               </a>
@@ -139,7 +145,7 @@ export default function Navigation() {
           <a
             href="/#download"
             onClick={handleDownloadClick}
-            className="block w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-500 transition-colors text-center"
+            className="block w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-500 transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800"
           >
             Download App
           </a>
