@@ -38,7 +38,7 @@ import { Image } from 'astro:assets'
         </div>
 
         <h1
-          class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]"
+          class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] text-balance"
         >
           Master your <br />
           <span
@@ -61,9 +61,9 @@ import { Image } from 'astro:assets'
           <a
             href="#download"
             id="hero_download"
-            class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-emerald-700 transition-all hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-1 group"
+            class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-emerald-700 transition-[background-color,box-shadow,transform] hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
           >
-            <Download className="w-5 h-5 group-hover:animate-bounce" />
+            <Download className="w-5 h-5 group-hover:animate-bounce" aria-hidden="true" />
             <span>Download APK</span>
           </a>
           <a
