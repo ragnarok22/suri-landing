@@ -16,6 +16,7 @@ const checkmarkIcon = (
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
+    aria-hidden="true"
   >
     <path
       strokeLinecap="round"
@@ -86,7 +87,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
   return (
     <dialog
       ref={dialogRef}
-      className="fixed inset-0 m-auto w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-0 shadow-2xl backdrop:bg-black/50 dark:border-slate-700 dark:bg-slate-900"
+      className="fixed inset-0 m-auto w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-0 shadow-2xl backdrop:bg-black/50 dark:border-slate-700 dark:bg-slate-900 overscroll-contain"
     >
       <div className="flex items-center justify-between border-b border-slate-200 p-6 dark:border-slate-700">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -94,10 +95,10 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
         </h2>
         <button
           onClick={onClose}
-          className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
+          className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
           aria-label="Close"
         >
-          <X className="h-5 w-5" />
+          <X className="h-5 w-5" aria-hidden={true} />
         </button>
       </div>
 
@@ -132,6 +133,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               id="contact-name"
               name="name"
               type="text"
+              autoComplete="name"
               required
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
@@ -147,6 +149,8 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               id="contact-email"
               name="email"
               type="email"
+              autoComplete="email"
+              spellCheck={false}
               required
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
@@ -162,6 +166,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               id="contact-subject"
               name="subject"
               type="text"
+              autoComplete="off"
               required
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-emerald-400"
             />
@@ -193,7 +198,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
             disabled={isPending}
             className="w-full rounded-lg bg-emerald-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {isPending ? 'Sending...' : 'Send Message'}
+            {isPending ? 'Sending\u2026' : 'Send Message'}
           </button>
         </form>
       )}
