@@ -61,10 +61,11 @@ export default function Navigation() {
           className="flex items-center gap-2"
           onClick={handleLogoClick}
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/30 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-400 blur-md opacity-50"></div>
-            S
-          </div>
+          <img
+            src="/suri-logo.jpg"
+            alt="Suri logo"
+            className="w-10 h-10 rounded-xl shadow-lg shadow-emerald-500/30"
+          />
           <span className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
             Suri
           </span>
