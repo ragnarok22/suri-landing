@@ -1,5 +1,26 @@
 ---
-import { Image } from 'astro:assets'
+const screenshots = [
+  {
+    src: '/screenshot1.png',
+    darkSrc: '/screenshot1-dark.png',
+    alt: 'Suri app home screen showing balance check and mobile credit top-up options for Telesur',
+  },
+  {
+    src: '/screenshot2.png',
+    darkSrc: '/screenshot2-dark.png',
+    alt: 'Suri app data plans interface displaying available Telesur prepaid data packages',
+  },
+  {
+    src: '/screenshot3.png',
+    darkSrc: '/screenshot3-dark.png',
+    alt: 'Suri app payment confirmation screen for mobile credit and data plan activation',
+  },
+  {
+    src: '/screenshot4.png',
+    darkSrc: '/screenshot4-dark.png',
+    alt: 'Suri app usage overview screen showing data consumption and credit history',
+  },
+]
 ---
 
 <section
@@ -15,30 +36,26 @@ import { Image } from 'astro:assets'
     <div
       class="flex justify-start md:justify-center gap-4 lg:gap-10 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-4 md:px-0 -mx-4 md:mx-0"
     >
-      <Image
-        src="/screenshot1.png"
-        alt="Suri app home screen showing balance check and mobile credit top-up options for Telesur"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
-        width={200}
-        height={400}
-        loading="lazy"
-      />
-      <Image
-        src="/screenshot2.png"
-        alt="Suri app data plans interface displaying available Telesur prepaid data packages"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
-        width={200}
-        height={400}
-        loading="lazy"
-      />
-      <Image
-        src="/screenshot3.png"
-        alt="Suri app payment confirmation screen for mobile credit and data plan activation"
-        class="rounded-lg mix-blend-multiply dark:mix-blend-normal object-cover shrink-0 snap-center"
-        width={200}
-        height={400}
-        loading="lazy"
-      />
+      {
+        screenshots.map((s) => (
+          <picture class="shrink-0 snap-center">
+            <source
+              srcset={s.darkSrc}
+              media="(prefers-color-scheme: dark)"
+              width="200"
+              height="400"
+            />
+            <img
+              src={s.src}
+              alt={s.alt}
+              width="200"
+              height="400"
+              loading="lazy"
+              class="rounded-lg object-cover"
+            />
+          </picture>
+        ))
+      }
     </div>
     <p
       class="text-center text-sm text-slate-400 dark:text-slate-500 mt-4 md:hidden"
