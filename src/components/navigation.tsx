@@ -130,7 +130,7 @@ export default function Navigation() {
                 key={item}
                 href={`/#${id}`}
                 onClick={(e) => scrollToSection(e, id)}
-                className="text-lg font-medium text-slate-600 dark:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+                className="text-lg font-medium text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
               >
                 {item}
               </a>
