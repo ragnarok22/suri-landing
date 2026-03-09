@@ -1,5 +1,6 @@
 ---
 import { ChevronDown } from 'lucide-react'
+import ContactButton from '@/components/contact-button'
 
 const faqs = [
   {
@@ -83,13 +84,7 @@ const faqs = [
       <div class="mt-12 text-center">
         <p class="text-slate-600 dark:text-slate-400">
           Still have questions?{' '}
-          <a
-            id="faq-contact-support"
-            href="mailto:support@suriapp.sr"
-            class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium underline underline-offset-2"
-          >
-            Contact our support team
-          </a>
+          <ContactButton client:load />
         </p>
       </div>
     </div>
@@ -110,12 +105,6 @@ const faqs = [
       }
     })
   })
-
-  document
-    .querySelector('#faq-contact-support')
-    ?.addEventListener('click', () => {
-      trackEvent('cta_click', { type: 'contact_support', location: 'faq' })
-    })
 </script>
 
 <style>
