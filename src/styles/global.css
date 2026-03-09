@@ -51,9 +51,15 @@
       sans-serif;
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition:
       background-color 0.2s,
       color 0.2s;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 
   /* Dark mode overrides */
