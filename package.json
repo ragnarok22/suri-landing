@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/vercel": "^9.0.4",
+    "@astrojs/vercel": "^10.0.2",
     "@vercel/analytics": "^1.6.1",
     "astro": "^5.18.0",
     "cheerio": "^1.2.0",
