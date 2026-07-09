@@ -11,6 +11,10 @@ export default defineConfig({
   site: 'https://suriapp.sr',
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: true,
+      cors: true,
+    },
   },
   integrations: [react(), sitemap()],
   output: 'server',
