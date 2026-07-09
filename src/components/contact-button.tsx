@@ -16,7 +16,7 @@ export default function ContactButton() {
     <>
       <button
         onClick={handleOpen}
-        className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium underline underline-offset-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+        className="text-teal dark:text-lime hover:text-teal-deep dark:hover:text-lime-deep font-bold underline underline-offset-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime rounded"
       >
         Contact our support team
       </button>

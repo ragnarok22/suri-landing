@@ -2,40 +2,43 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer
-  id="footer"
-  class="bg-slate-50 dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800"
->
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-        <div
-          class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-        >
-          S
-        </div>
-        <span class="text-xl font-bold text-slate-900 dark:text-white"
-          >Suri</span
-        >
+<footer id="footer" class="bg-teal text-cream py-14 relative overflow-hidden">
+  <img
+    src="/images/foliage-lime.png"
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-16 -right-12 w-72 opacity-10 rotate-6"
+  />
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-2.5">
+        <img
+          src="/suri-logo.jpg"
+          alt="Suri logo"
+          width={36}
+          height={36}
+          class="w-9 h-9 rounded-xl"
+        />
+        <span class="font-display text-2xl font-extrabold">Suri</span>
       </div>
 
       <div
-        class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-slate-500 dark:text-slate-400 text-center sm:text-left"
+        class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-cream/70 font-semibold text-center sm:text-left"
       >
         <a
           href="/privacy"
-          class="hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+          class="hover:text-lime transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime rounded"
           >Privacy Policy</a
         >
         <a
           href="/terms"
-          class="hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+          class="hover:text-lime transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime rounded"
           >Terms of Service</a
         >
       </div>
 
-      <div class="text-sm text-slate-400 dark:text-slate-500">
-        © {currentYear} Suri App. All rights reserved.
+      <div class="text-sm text-cream/50">
+        © {currentYear} Suri App. Made in Suriname.
       </div>
     </div>
   </div>

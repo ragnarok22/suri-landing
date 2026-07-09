@@ -1,66 +1,62 @@
 ---
-import { Download, ChevronRight, Check } from 'lucide-react'
+import { Download, ArrowRight, Check } from 'lucide-react'
 ---
 
-<header
-  id="hero"
-  class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden"
->
-  <!-- Abstract Background Blobs -->
-  <div
+<header id="hero" class="relative pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden">
+  <!-- Tropical foliage accent (concrete illustration, not a blob) -->
+  <img
+    src="/images/foliage-lime.png"
+    alt=""
     aria-hidden="true"
-    class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-emerald-100/40 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse-slow"
-  >
-  </div>
-  <div
-    aria-hidden="true"
-    class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-yellow-100/40 dark:bg-yellow-900/20 rounded-full blur-3xl opacity-50 -z-10"
-  >
-  </div>
+    class="pointer-events-none select-none absolute -top-10 -left-24 w-72 md:w-96 opacity-20 dark:opacity-10 -rotate-12 -z-10"
+  />
 
   <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center gap-16">
+    <div class="grid lg:grid-cols-2 items-center gap-12 lg:gap-8">
       <!-- Text Content -->
-      <div class="md:w-1/2 space-y-8 text-center md:text-left">
+      <div class="space-y-7 text-center lg:text-left">
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-full text-sm font-semibold mb-2 border border-emerald-100 dark:border-emerald-700"
+          class="inline-flex items-center gap-2 px-3 py-1.5 bg-lime/20 text-teal dark:text-lime rounded-full text-sm font-bold border border-lime/40"
         >
           <span class="relative flex h-2 w-2">
             <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime opacity-75"
             ></span>
             <span
-              class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+              class="relative inline-flex rounded-full h-2 w-2 bg-lime-deep"
             ></span>
           </span>
-          The #1 Mobile Manager in Suriname
+          Made for Suriname · Powered by Telesur
         </div>
 
         <h1
-          class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] text-balance"
+          class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95] text-balance"
         >
-          Master your <br />
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500"
-          >
-            Mobile Life
+          Your Telesur life,
+          <span class="relative inline-block">
+            <span class="relative z-10">finally</span>
+            <span
+              aria-hidden="true"
+              class="absolute inset-x-0 bottom-1 h-4 md:h-5 bg-lime -z-0 -rotate-1"
+            ></span>
           </span>
+          simple.
         </h1>
 
         <p
-          class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+          class="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed"
         >
-          Check your balance, top up instantly, and manage data plans with the
-          app built for Suriname. Fast, secure, and easy.
+          Check your balance, top up in seconds, and compare data bundles — all
+          in one friendly app. No USSD codes, no account, no hassle.
         </p>
 
         <div
-          class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
+          class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
         >
           <a
             href="#download"
             id="hero_download"
-            class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-emerald-700 transition-[background-color,box-shadow,transform] hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+            class="w-full sm:w-auto px-7 py-4 bg-teal text-cream dark:bg-lime dark:text-teal-deep rounded-2xl font-bold flex items-center justify-center gap-2.5 hover:bg-teal-deep dark:hover:bg-lime-deep transition-[background-color,transform] hover:-translate-y-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download
               className="w-5 h-5 group-hover:animate-bounce"
@@ -71,52 +67,90 @@ import { Download, ChevronRight, Check } from 'lucide-react'
           <a
             href="#features"
             id="hero_view_features"
-            class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 transition-[background-color,border-color] hover:border-slate-300 dark:hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+            class="w-full sm:w-auto px-7 py-4 bg-transparent text-foreground border-2 border-teal/20 dark:border-border rounded-2xl font-bold flex items-center justify-center gap-2 hover:border-teal dark:hover:border-lime transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-background group"
           >
-            <span>View Features</span>
-            <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            <span>See how it works</span>
+            <ArrowRight
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            />
           </a>
         </div>
 
         <div
-          class="pt-4 flex items-center justify-center md:justify-start gap-6 text-slate-400 text-sm font-medium"
+          class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-muted-foreground text-sm font-semibold"
         >
-          <span class="flex items-center gap-2"
-            ><Check className="w-4 h-4 text-emerald-500" aria-hidden="true" /> Supports
-            Telesur</span
-          >
-          <span class="flex items-center gap-2"
-            ><Check className="w-4 h-4 text-emerald-500" aria-hidden="true" /> Data
-            Management</span
-          >
+          <span class="flex items-center gap-2">
+            <Check className="w-4 h-4 text-lime-deep dark:text-lime" aria-hidden="true" />
+            No account needed
+          </span>
+          <span class="flex items-center gap-2">
+            <Check className="w-4 h-4 text-lime-deep dark:text-lime" aria-hidden="true" />
+            Always free
+          </span>
+          <span class="flex items-center gap-2">
+            <Check className="w-4 h-4 text-lime-deep dark:text-lime" aria-hidden="true" />
+            iOS & Android
+          </span>
         </div>
       </div>
 
-      <!-- Hero Visual / App Screenshot -->
-      <div class="hidden md:flex md:w-1/2 justify-center relative">
-        <!-- Decorative elements behind phone -->
+      <!-- Hero Visual -->
+      <div class="relative flex justify-center lg:justify-end">
+        <!-- Colored brand panel behind the phone -->
         <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[700px] bg-gradient-to-tr from-emerald-500/20 to-yellow-400/20 dark:from-emerald-500/10 dark:to-yellow-400/10 rounded-[3rem] -rotate-6 blur-xl"
+          class="relative w-full max-w-md aspect-[4/5] rounded-[2.5rem] bg-sky dark:bg-teal overflow-hidden ring-1 ring-teal/10"
         >
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 text-teal/10 dark:text-lime/10 bg-dot-grid"
+          ></div>
+          <img
+            src="/images/foliage-teal.png"
+            alt=""
+            aria-hidden="true"
+            class="pointer-events-none select-none absolute -bottom-6 -right-8 w-56 opacity-30 dark:opacity-20 rotate-6"
+          />
+
+          <!-- Phone Screenshot -->
+          <div
+            class="absolute left-1/2 -translate-x-1/2 top-8 animate-float w-[240px] sm:w-[260px]"
+          >
+            <picture>
+              <source
+                srcset="/screenshot1-dark.webp"
+                media="(prefers-color-scheme: dark)"
+                width="260"
+                height="563"
+              />
+              <img
+                src="/screenshot1.webp"
+                alt="Suri app home screen showing balance, recharge and data options"
+                width="260"
+                height="563"
+                class="rounded-[2rem] shadow-2xl ring-1 ring-black/5 w-full"
+              />
+            </picture>
+          </div>
         </div>
 
-        <!-- Phone Screenshot -->
-        <div class="relative animate-float">
-          <picture>
-            <source
-              srcset="/screenshot1-dark.webp"
-              media="(prefers-color-scheme: dark)"
-              width="300"
-              height="650"
-            />
-            <img
-              src="/screenshot1.webp"
-              alt="Suri App Screenshot"
-              width="300"
-              height="650"
-              class="relative rounded-[2.5rem] shadow-2xl"
-            />
-          </picture>
+        <!-- Floating stat chip -->
+        <div
+          class="absolute -left-2 sm:left-4 bottom-8 bg-card text-card-foreground rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-border"
+        >
+          <div
+            class="w-9 h-9 rounded-xl bg-lime/20 text-teal dark:text-lime flex items-center justify-center font-display font-extrabold"
+          >
+            SR
+          </div>
+          <div class="text-left leading-tight">
+            <div class="font-display font-extrabold text-lg tabular-nums">
+              10k+
+            </div>
+            <div class="text-xs text-muted-foreground font-semibold">
+              Surinamers onboard
+            </div>
+          </div>
         </div>
       </div>
     </div>
