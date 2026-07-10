@@ -1,4 +1,6 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Smartphone } from 'lucide-react'
 
 const screenshots = [
@@ -33,10 +35,8 @@ const screenshots = [
   id="screenshots"
   class="py-24 bg-sky-soft dark:bg-muted relative overflow-hidden"
 >
-  <img
-    src="/images/foliage-teal.png"
-    alt=""
-    aria-hidden="true"
+  <Foliage
+    variant="teal"
     class="pointer-events-none absolute -bottom-10 -left-16 w-72 opacity-10 dark:opacity-15 rotate-12"
   />
 

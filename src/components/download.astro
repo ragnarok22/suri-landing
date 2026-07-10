@@ -1,4 +1,6 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Image } from 'astro:assets'
 import { Download as DownloadIcon, Clock } from 'lucide-react'
 ---
@@ -13,16 +15,12 @@ import { Download as DownloadIcon, Clock } from 'lucide-react'
         class="absolute inset-0 text-teal-deep/10 bg-dot-grid pointer-events-none"
       >
       </div>
-      <img
-        src="/images/foliage-teal.png"
-        alt=""
-        aria-hidden="true"
+      <Foliage
+        variant="teal"
         class="pointer-events-none absolute -bottom-12 -left-12 w-64 opacity-20 rotate-6"
       />
-      <img
-        src="/images/foliage-teal.png"
-        alt=""
-        aria-hidden="true"
+      <Foliage
+        variant="teal"
         class="pointer-events-none absolute -top-12 -right-12 w-64 opacity-20 -rotate-12 scale-x-[-1]"
       />
 

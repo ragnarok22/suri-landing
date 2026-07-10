@@ -1,4 +1,6 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import {
   Wallet,
   Zap,
@@ -33,10 +35,8 @@ import {
           aria-hidden="true"
           class="absolute inset-0 text-lime/15 bg-dot-grid"
         ></div>
-        <img
-          src="/images/foliage-lime.png"
-          alt=""
-          aria-hidden="true"
+        <Foliage
+          variant="lime"
           class="pointer-events-none absolute -bottom-10 -right-10 w-64 opacity-25 rotate-12"
         />
         <div class="relative z-10 flex flex-col h-full">

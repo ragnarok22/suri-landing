@@ -1,13 +1,13 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Download, ArrowRight, Check } from 'lucide-react'
 ---
 
 <header id="hero" class="relative pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden">
   <!-- Tropical foliage accent (concrete illustration, not a blob) -->
-  <img
-    src="/images/foliage-lime.png"
-    alt=""
-    aria-hidden="true"
+  <Foliage
+    variant="lime"
     class="pointer-events-none select-none absolute -top-10 -left-24 w-72 md:w-96 opacity-20 dark:opacity-10 -rotate-12 -z-10"
   />
 
@@ -105,10 +105,8 @@ import { Download, ArrowRight, Check } from 'lucide-react'
             aria-hidden="true"
             class="absolute inset-0 text-teal/10 dark:text-lime/10 bg-dot-grid"
           ></div>
-          <img
-            src="/images/foliage-teal.png"
-            alt=""
-            aria-hidden="true"
+          <Foliage
+            variant="teal"
             class="pointer-events-none select-none absolute -bottom-6 -right-8 w-56 opacity-30 dark:opacity-20 rotate-6"
           />
 
@@ -128,6 +126,9 @@ import { Download, ArrowRight, Check } from 'lucide-react'
                 alt="Suri app home screen showing balance, recharge and data options"
                 width="260"
                 height="563"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 class="rounded-[2rem] shadow-2xl ring-1 ring-black/5 w-full"
               />
             </picture>

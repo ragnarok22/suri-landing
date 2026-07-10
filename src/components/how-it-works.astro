@@ -1,4 +1,6 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Download } from 'lucide-react'
 
 const steps = [
@@ -29,10 +31,8 @@ const steps = [
     class="absolute inset-0 text-lime/10 bg-dot-grid pointer-events-none"
   >
   </div>
-  <img
-    src="/images/foliage-lime.png"
-    alt=""
-    aria-hidden="true"
+  <Foliage
+    variant="lime"
     class="pointer-events-none absolute -top-16 -right-20 w-96 opacity-15 rotate-12"
   />
 
