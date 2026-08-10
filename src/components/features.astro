@@ -1,78 +1,158 @@
 ---
-import { Shield, Zap, Wifi } from 'lucide-react'
+import Foliage from '@/components/foliage.astro'
+
+import {
+  Wallet,
+  Zap,
+  Wifi,
+  ArrowLeftRight,
+  EyeOff,
+  PhoneCall,
+} from 'lucide-react'
 ---
 
-<section id="features" class="py-24 bg-white dark:bg-slate-950 relative">
-  <!-- Subtle accent blob -->
-  <div
-    aria-hidden="true"
-    class="absolute top-1/2 left-0 w-64 h-64 bg-yellow-100/30 dark:bg-yellow-900/10 blur-3xl rounded-full -translate-y-1/2 pointer-events-none"
-  >
-  </div>
-
+<section id="features" class="py-24 bg-background relative">
   <div class="container mx-auto px-6 relative z-10">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2
-        class="text-3xl font-bold text-slate-900 dark:text-white mb-4 text-balance"
+    <div class="max-w-3xl mb-14">
+      <span
+        class="inline-block font-display font-bold text-sm uppercase tracking-widest text-lime-deep dark:text-lime mb-4"
       >
-        Why choose Suri?
+        Everything in one app
+      </span>
+      <h2
+        class="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-balance leading-[1.05]"
+      >
+        The whole Telesur toolbox, in your pocket.
       </h2>
-      <p class="text-slate-600 dark:text-slate-300">
-        Designed for speed and simplicity. Suri gives you direct control over
-        your prepaid and postpaid services.
-      </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div
-        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-[border-color,box-shadow] duration-300 group"
+    <div class="grid md:grid-cols-3 gap-5">
+      <!-- Highlight card -->
+      <article
+        class="md:col-span-2 md:row-span-2 bg-teal text-cream rounded-3xl p-8 lg:p-10 relative overflow-hidden group"
       >
         <div
-          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
-        >
-          <Shield className="w-7 h-7" aria-hidden="true" />
+          aria-hidden="true"
+          class="absolute inset-0 text-lime/15 bg-dot-grid"
+        ></div>
+        <Foliage
+          variant="lime"
+          class="pointer-events-none absolute -bottom-10 -right-10 w-64 opacity-25 rotate-12"
+        />
+        <div class="relative z-10 flex flex-col h-full">
+          <div
+            class="w-14 h-14 bg-lime text-teal-deep rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <Wallet className="w-7 h-7" aria-hidden="true" />
+          </div>
+          <h3 class="font-display text-2xl lg:text-3xl font-extrabold mb-3">
+            Check &amp; recharge your balance
+          </h3>
+          <p class="text-cream/75 leading-relaxed max-w-md">
+            Your current balance is right on the home screen — no codes to
+            memorize. Top up in seconds with vouchers or a quick recharge.
+          </p>
+          <div class="mt-auto pt-8 flex items-center gap-6">
+            <div>
+              <div class="font-display text-3xl font-extrabold tabular-nums">
+                &lt;5s
+              </div>
+              <div class="text-xs text-cream/60 font-semibold uppercase tracking-wide">
+                to top up
+              </div>
+            </div>
+            <div class="w-px h-10 bg-cream/20"></div>
+            <div>
+              <div class="font-display text-3xl font-extrabold tabular-nums">
+                0
+              </div>
+              <div class="text-xs text-cream/60 font-semibold uppercase tracking-wide">
+                USSD codes
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-          Reliable & Secure
-        </h3>
-        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-          Your transactions are encrypted and processed instantly. No more
-          failed USSD codes.
-        </p>
-      </div>
+      </article>
 
-      <div
-        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-[border-color,box-shadow] duration-300 group"
+      <!-- Small cards -->
+      <article
+        class="bg-card text-card-foreground rounded-3xl p-7 border border-border hover:border-lime dark:hover:border-lime transition-colors group"
       >
         <div
-          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
+          class="w-12 h-12 bg-sky-soft dark:bg-muted text-teal dark:text-lime rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
         >
-          <Zap className="w-7 h-7" aria-hidden="true" />
+          <Wifi className="w-6 h-6" aria-hidden="true" />
         </div>
-        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-          Instant Top-up
+        <h3 class="font-display text-xl font-extrabold mb-2">
+          Best data bundles
         </h3>
-        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-          Recharge your account in seconds using vouchers or digital payments.
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Compare every Telesur data plan by price and duration, then activate
+          in a tap.
         </p>
-      </div>
+      </article>
 
-      <div
-        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-500/5 dark:hover:shadow-emerald-500/10 transition-[border-color,box-shadow] duration-300 group"
+      <article
+        class="bg-card text-card-foreground rounded-3xl p-7 border border-border hover:border-lime dark:hover:border-lime transition-colors group"
       >
         <div
-          class="w-14 h-14 bg-white dark:bg-slate-700 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-emerald-600 dark:text-emerald-400"
+          class="w-12 h-12 bg-sky-soft dark:bg-muted text-teal dark:text-lime rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
         >
-          <Wifi className="w-7 h-7" aria-hidden="true" />
+          <ArrowLeftRight className="w-6 h-6" aria-hidden="true" />
         </div>
-        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-          Best Data Bundles
+        <h3 class="font-display text-xl font-extrabold mb-2">
+          Transfer balance
         </h3>
-        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-          Easily compare and activate data plans that suit your budget and
-          lifestyle.
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Send credit to friends and family on another Telesur number
+          instantly.
         </p>
-      </div>
+      </article>
+
+      <!-- Bottom row -->
+      <article
+        class="bg-card text-card-foreground rounded-3xl p-7 border border-border hover:border-lime dark:hover:border-lime transition-colors group"
+      >
+        <div
+          class="w-12 h-12 bg-sky-soft dark:bg-muted text-teal dark:text-lime rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+        >
+          <EyeOff className="w-6 h-6" aria-hidden="true" />
+        </div>
+        <h3 class="font-display text-xl font-extrabold mb-2">Private number</h3>
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Hide your caller ID when you need a little extra privacy.
+        </p>
+      </article>
+
+      <article
+        class="bg-card text-card-foreground rounded-3xl p-7 border border-border hover:border-lime dark:hover:border-lime transition-colors group"
+      >
+        <div
+          class="w-12 h-12 bg-sky-soft dark:bg-muted text-teal dark:text-lime rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+        >
+          <PhoneCall className="w-6 h-6" aria-hidden="true" />
+        </div>
+        <h3 class="font-display text-xl font-extrabold mb-2">Useful numbers</h3>
+        <p class="text-muted-foreground text-sm leading-relaxed">
+          Emergency and service numbers for Suriname, always a tap away.
+        </p>
+      </article>
+
+      <article
+        class="bg-lime text-teal-deep rounded-3xl p-7 flex flex-col justify-center group"
+      >
+        <div
+          class="w-12 h-12 bg-teal-deep/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+        >
+          <Zap className="w-6 h-6" aria-hidden="true" />
+        </div>
+        <h3 class="font-display text-xl font-extrabold mb-2">
+          Fast &amp; secure
+        </h3>
+        <p class="text-teal-deep/70 text-sm leading-relaxed">
+          Encrypted transactions processed straight through your carrier.
+        </p>
+      </article>
     </div>
   </div>
 </section>

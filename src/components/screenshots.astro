@@ -1,4 +1,6 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Smartphone } from 'lucide-react'
 
 const screenshots = [
@@ -31,38 +33,31 @@ const screenshots = [
 
 <section
   id="screenshots"
-  class="py-24 bg-slate-100 dark:bg-slate-800 relative overflow-hidden"
+  class="py-24 bg-sky-soft dark:bg-muted relative overflow-hidden"
 >
-  <!-- Background decoration -->
-  <div
-    aria-hidden="true"
-    class="absolute top-0 right-0 w-96 h-96 bg-emerald-200/30 dark:bg-emerald-900/15 rounded-full blur-3xl"
-  >
-  </div>
-  <div
-    aria-hidden="true"
-    class="absolute bottom-0 left-0 w-80 h-80 bg-yellow-200/20 dark:bg-yellow-900/10 rounded-full blur-3xl"
-  >
-  </div>
+  <Foliage
+    variant="teal"
+    class="pointer-events-none absolute -bottom-10 -left-16 w-72 opacity-10 dark:opacity-15 rotate-12"
+  />
 
   <div class="container mx-auto px-6 relative z-10">
     <!-- Section header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
+    <div class="max-w-2xl mb-14">
       <div
-        class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full text-sm font-semibold mb-6 border border-emerald-200 dark:border-emerald-700"
+        class="inline-flex items-center gap-2 px-3 py-1.5 bg-teal text-cream dark:bg-lime dark:text-teal-deep rounded-full text-sm font-bold mb-5"
       >
         <Smartphone className="w-4 h-4" aria-hidden="true" />
         <span>See it in action</span>
       </div>
 
       <h2
-        class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-balance"
+        class="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-4 text-balance leading-[1.05]"
       >
-        Designed for Simplicity
+        Clean, friendly, and made to feel effortless.
       </h2>
-      <p class="text-slate-600 dark:text-slate-300">
-        A clean, intuitive interface that makes managing your mobile services
-        effortless.
+      <p class="text-lg text-muted-foreground">
+        Every screen is designed so managing your mobile services takes seconds,
+        not minutes.
       </p>
     </div>
 
@@ -78,10 +73,10 @@ const screenshots = [
               i % 2 === 1 && 'lg:translate-y-6',
             ]}
           >
-            <div class="screenshot-card relative rounded-[2rem] bg-white dark:bg-slate-900 p-2 shadow-lg shadow-slate-900/10 dark:shadow-black/30 ring-1 ring-slate-200/60 dark:ring-slate-700/60">
+            <div class="screenshot-card relative rounded-[2rem] bg-card p-2 shadow-lg shadow-teal/10 dark:shadow-black/30 ring-1 ring-border">
               <div
                 aria-hidden="true"
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-white dark:bg-slate-900 rounded-b-2xl z-10"
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-card rounded-b-2xl z-10"
               />
               <picture>
                 <source
@@ -100,7 +95,7 @@ const screenshots = [
                 />
               </picture>
             </div>
-            <p class="text-center text-sm font-medium text-slate-600 dark:text-slate-400 mt-4 transition-colors duration-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+            <p class="text-center text-sm font-bold text-muted-foreground mt-4 transition-colors duration-300 group-hover:text-teal dark:group-hover:text-lime">
               {s.label}
             </p>
           </div>
@@ -109,7 +104,7 @@ const screenshots = [
     </div>
 
     <p
-      class="text-center text-sm text-slate-400 dark:text-slate-500 mt-4 md:hidden"
+      class="text-center text-sm text-muted-foreground mt-4 md:hidden"
     >
       Swipe to see more
     </p>
