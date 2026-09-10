@@ -45,33 +45,35 @@ const faqs = [
 ]
 ---
 
-<section
-  id="faq"
-  class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden"
->
+<section id="faq" class="py-24 bg-background relative overflow-hidden">
   <div class="container mx-auto px-6">
     <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-16">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-balance"
+      <div class="text-center mb-14">
+        <span
+          class="inline-block font-display font-bold text-sm uppercase tracking-widest text-lime-deep dark:text-lime mb-4"
         >
-          Frequently Asked Questions
+          Questions & answers
+        </span>
+        <h2
+          class="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-4 text-balance leading-[1.05]"
+        >
+          Everything you need to know
         </h2>
-        <p class="text-lg text-slate-600 dark:text-slate-300">
-          Everything you need to know about Suri
+        <p class="text-lg text-muted-foreground">
+          Still unsure? Here are the questions we hear most often.
         </p>
       </div>
 
       <div class="space-y-4">
         {
           faqs.map((faq) => (
-            <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-emerald-200 dark:hover:border-emerald-700">
-              <summary class="flex items-center justify-between cursor-pointer p-6 text-left select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-inset rounded-xl">
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white pr-8">
+            <details class="group bg-card rounded-2xl border border-border overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-lime dark:hover:border-lime">
+              <summary class="flex items-center justify-between cursor-pointer p-6 text-left select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-inset rounded-2xl">
+                <h3 class="font-display text-lg font-bold text-foreground pr-8">
                   {faq.question}
                 </h3>
                 <svg
-                  class="w-5 h-5 text-slate-500 dark:text-slate-400 transition-transform duration-200 group-open:rotate-180 shrink-0"
+                  class="w-5 h-5 text-teal dark:text-lime transition-transform duration-200 group-open:rotate-180 shrink-0"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -86,7 +88,7 @@ const faqs = [
                   />
                 </svg>
               </summary>
-              <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+              <div class="px-6 pb-6 text-muted-foreground leading-relaxed">
                 {faq.answer}
               </div>
             </details>
@@ -95,7 +97,7 @@ const faqs = [
       </div>
 
       <div class="mt-12 text-center">
-        <div class="text-slate-600 dark:text-slate-400">
+        <div class="text-muted-foreground font-medium">
           Still have questions?{' '}
           <ContactButton client:idle />
         </div>
