@@ -1,135 +1,109 @@
 ---
+import Foliage from '@/components/foliage.astro'
+
 import { Download } from 'lucide-react'
+
+const steps = [
+  {
+    n: '01',
+    title: 'Download Suri',
+    body: 'Grab the app from the App Store or download the APK directly — no sign-up required.',
+  },
+  {
+    n: '02',
+    title: 'Open & connect',
+    body: 'Suri instantly recognizes your Telesur line and pulls in your balance and plans.',
+  },
+  {
+    n: '03',
+    title: 'Take control',
+    body: 'Top up, buy data, transfer credit, and track usage — all from one clean home screen.',
+  },
+]
 ---
 
 <section
   id="how-it-works"
-  class="py-24 bg-emerald-950 dark:bg-slate-800 text-white dark:text-slate-100 overflow-hidden relative"
+  class="py-24 bg-teal text-cream overflow-hidden relative"
 >
   <div
     aria-hidden="true"
-    class="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-5"
-    style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 32px 32px;"
+    class="absolute inset-0 text-lime/10 bg-dot-grid pointer-events-none"
   >
   </div>
-  <div
-    aria-hidden="true"
-    class="hidden dark:block absolute top-0 left-0 w-full h-full opacity-5"
-    style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 32px 32px;"
-  >
-  </div>
+  <Foliage
+    variant="lime"
+    class="pointer-events-none absolute -top-16 -right-20 w-96 opacity-15 rotate-12"
+  />
 
   <div class="container mx-auto px-6 relative z-10">
-    <div class="flex flex-col md:flex-row items-center gap-16">
-      <div class="md:w-1/2">
-        <div
-          class="inline-block px-3 py-1 bg-emerald-900 dark:bg-slate-700 rounded-full text-emerald-300 dark:text-emerald-400 text-xs font-bold mb-6 border border-emerald-800 dark:border-slate-600"
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span
+          class="inline-block font-display font-bold text-sm uppercase tracking-widest text-lime mb-4"
         >
-          EASY SETUP
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-balance">
+          Up and running in minutes
+        </span>
+        <h2
+          class="font-display text-4xl md:text-5xl font-extrabold mb-12 text-balance leading-[1.05]"
+        >
           Simple. Fast. Connected.
         </h2>
-        <div class="space-y-8">
-          <div class="flex gap-6 group">
-            <div
-              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 dark:text-emerald-400/50 dark:group-hover:text-emerald-300 transition-colors"
-            >
-              01
-            </div>
-            <div>
-              <h3
-                class="text-xl font-bold mb-2 group-hover:text-emerald-300 dark:group-hover:text-emerald-400 transition-colors"
-              >
-                Download Suri
-              </h3>
-              <p class="text-slate-400">
-                Get the app directly from our website or app store.
-              </p>
-            </div>
-          </div>
-          <div class="flex gap-6 group">
-            <div
-              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 dark:text-emerald-400/50 dark:group-hover:text-emerald-300 transition-colors"
-            >
-              02
-            </div>
-            <div>
-              <h3
-                class="text-xl font-bold mb-2 group-hover:text-emerald-300 dark:group-hover:text-emerald-400 transition-colors"
-              >
-                Auto-Connect
-              </h3>
-              <p class="text-slate-400">
-                We automatically detect your carrier and status.
-              </p>
-            </div>
-          </div>
-          <div class="flex gap-6 group">
-            <div
-              class="text-2xl font-bold text-emerald-500/50 group-hover:text-emerald-400 dark:text-emerald-400/50 dark:group-hover:text-emerald-300 transition-colors"
-            >
-              03
-            </div>
-            <div>
-              <h3
-                class="text-xl font-bold mb-2 group-hover:text-emerald-300 dark:group-hover:text-emerald-400 transition-colors"
-              >
-                Take Control
-              </h3>
-              <p class="text-slate-400">
-                Top up, buy data, and track your usage immediately.
-              </p>
-            </div>
-          </div>
-        </div>
+
+        <ol class="space-y-8">
+          {
+            steps.map((step) => (
+              <li class="flex gap-6 group">
+                <div class="font-display text-4xl font-extrabold text-lime/40 group-hover:text-lime transition-colors tabular-nums shrink-0 w-16">
+                  {step.n}
+                </div>
+                <div class="border-l border-cream/15 pl-6 pb-2">
+                  <h3 class="font-display text-xl font-extrabold mb-2">
+                    {step.title}
+                  </h3>
+                  <p class="text-cream/70 leading-relaxed max-w-md">
+                    {step.body}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+
+        <a
+          id="how-it-works-download"
+          href="#download"
+          class="mt-12 inline-flex items-center gap-2.5 px-7 py-4 bg-lime text-teal-deep rounded-2xl font-bold hover:bg-lime-deep transition-[background-color,transform] hover:-translate-y-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-teal"
+        >
+          <Download
+            className="w-5 h-5 group-hover:animate-bounce"
+            aria-hidden="true"
+          />
+          <span>Get Suri now</span>
+        </a>
       </div>
 
-      <div class="md:w-1/2 flex justify-center">
-        <div class="relative">
-          <!-- Glow behind stats -->
-          <div
-            class="absolute inset-0 bg-emerald-500 blur-[100px] opacity-20 pointer-events-none"
-          >
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div
-              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center transform translate-y-8 hover:bg-white/10 transition-colors"
-            >
-              <span class="text-4xl font-bold mb-2 tabular-nums">10k+</span>
-              <span class="text-xs text-emerald-200 dark:text-emerald-300"
-                >Downloads</span
-              >
-            </div>
-            <div
-              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center hover:bg-white/10 transition-colors"
-            >
-              <span class="text-4xl font-bold mb-2 tabular-nums">4.8</span>
-              <span class="text-xs text-emerald-200 dark:text-emerald-300"
-                >User Rating</span
-              >
-            </div>
-            <div
-              class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center transform translate-y-8 hover:bg-white/10 transition-colors"
-            >
-              <span class="text-4xl font-bold mb-2 tabular-nums">24/7</span>
-              <span class="text-xs text-emerald-200 dark:text-emerald-300"
-                >Availability</span
-              >
-            </div>
-            <a
-              id="how-it-works-download"
-              href="#download"
-              class="bg-emerald-600 dark:bg-emerald-700 p-6 rounded-2xl w-32 h-32 sm:w-40 sm:h-40 flex flex-col justify-center items-center shadow-lg shadow-emerald-500/30 hover:bg-emerald-500 dark:hover:bg-emerald-600 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-950 dark:focus-visible:ring-offset-slate-800"
-            >
-              <Download
-                className="w-8 h-8 mb-2 group-hover:animate-bounce"
-                aria-hidden="true"
-              />
-              <span class="text-xs font-bold">Get it now</span>
-            </a>
-          </div>
+      <!-- Product screenshot -->
+      <div class="flex justify-center">
+        <div
+          class="relative rounded-[2.5rem] bg-sky/10 backdrop-blur-sm p-4 ring-1 ring-cream/10"
+        >
+          <picture>
+            <source
+              srcset="/screenshot3-dark.webp"
+              media="(prefers-color-scheme: dark)"
+              width="280"
+              height="606"
+            />
+            <img
+              src="/screenshot3.webp"
+              alt="Suri app confirming a quick mobile credit activation"
+              width="280"
+              height="606"
+              loading="lazy"
+              class="rounded-[2rem] shadow-2xl w-[240px] sm:w-[280px]"
+            />
+          </picture>
         </div>
       </div>
     </div>
