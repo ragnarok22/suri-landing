@@ -1,0 +1,30 @@
+---
+import { Picture } from 'astro:assets'
+
+import foliageLime from '@/assets/images/foliage-lime.png'
+import foliageTeal from '@/assets/images/foliage-teal.png'
+
+interface Props {
+  variant: 'lime' | 'teal'
+  class?: string
+}
+
+const { variant, class: className } = Astro.props
+const src = variant === 'lime' ? foliageLime : foliageTeal
+const size = variant === 'lime' ? 384 : 288
+---
+
+<Picture
+  src={src}
+  formats={['avif']}
+  fallbackFormat="webp"
+  alt=""
+  aria-hidden="true"
+  width={size}
+  height={size}
+  densities={[2]}
+  loading="lazy"
+  decoding="async"
+  fetchpriority="low"
+  class={className}
+/>

@@ -1,0 +1,32 @@
+---
+const items = [
+  'Check Balance',
+  'Recharge Balance',
+  'Transfer Balance',
+  'Mobile Data',
+  'Private Number',
+  'Useful Numbers',
+  'No USSD Codes',
+  'No Account',
+]
+---
+
+<div
+  class="bg-teal text-cream dark:bg-lime dark:text-teal-deep py-4 overflow-hidden"
+  aria-hidden="true"
+>
+  <div class="flex whitespace-nowrap animate-marquee">
+    {
+      [0, 1].map(() => (
+        <ul class="flex items-center shrink-0">
+          {items.map((item) => (
+            <li class="flex items-center font-display font-bold text-lg md:text-xl px-6">
+              <span>{item}</span>
+              <span class="mx-6 text-lime dark:text-teal opacity-80">✦</span>
+            </li>
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+</div>
